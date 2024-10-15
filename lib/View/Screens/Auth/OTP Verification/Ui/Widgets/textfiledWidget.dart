@@ -15,7 +15,7 @@ class TextFormWidget extends StatelessWidget {
       width: size.widthMedia(context, .15),
       color: ColorsClass.colorwhite,
       child: TextFormField(
-        autofocus: true,
+       // autofocus: true,
         controller: controller,
         maxLength: 1,
         cursorColor: ColorsClass.primary,

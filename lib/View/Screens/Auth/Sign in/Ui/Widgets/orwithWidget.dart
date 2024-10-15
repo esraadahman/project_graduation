@@ -4,8 +4,10 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:project_graduation/Core/Theming/size/size.dart';
 
 class ORWithWidget extends StatelessWidget {
-  const ORWithWidget({super.key});
-
+  const ORWithWidget({super.key, required this.ontap1, required this.ontap2, required this.ontap3});
+final VoidCallback ontap1;
+final VoidCallback ontap2;
+final VoidCallback ontap3;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +22,7 @@ class ORWithWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: (){},
+                          onTap: ontap1,
                           child: const Icon(
                             Bootstrap.github,
                             size: 30,
@@ -28,7 +30,7 @@ class ORWithWidget extends StatelessWidget {
                         ),
                         size.width(15.w),
                         GestureDetector(
-                          onTap: (){},
+                          onTap: ontap2,
                           child: Image.asset(
                             "assets/images/google.png",
                             width: 30,
@@ -37,7 +39,7 @@ class ORWithWidget extends StatelessWidget {
                         ),
                         size.width(15.w),
                         GestureDetector(
-                          onTap: (){},
+                          onTap: ontap3,
                           child: Image.asset(
                             "assets/images/facebook_icon.png",
                             width: 30,

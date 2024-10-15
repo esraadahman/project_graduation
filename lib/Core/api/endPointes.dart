@@ -3,6 +3,12 @@ class EndPoint {
 //static String baseUrl = "http://127.0.0.1:8000/api/";
   static String signin = "login";
   static String signup = "register";
+ static String google = "register/google";
+  static String github = "register/github";
+  static String linkedIn = "register/linkedin";
+  static String forgetPassword  ="email/forget";
+  static String otpCode = 'email/forget/check';
+  static String createNewPassword = 'password/change';
   static String deletpost(int id) {
     return "blogs/$id";
   }
@@ -42,6 +48,7 @@ class ApiKey {
   static String token = "token";
 
 //login
+static String type = "type";
 
   static String email_verified_at = "email_verified_at";
 

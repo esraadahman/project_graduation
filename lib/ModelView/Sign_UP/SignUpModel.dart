@@ -1,12 +1,12 @@
-class SignUpModel {
+class GlobalResponse {
   final bool status;
   final String message;
 
-  SignUpModel({required this.status, required this.message});
+  GlobalResponse({required this.status, required this.message});
 
   // Factory method to create an instance from JSON
-  factory SignUpModel.fromJson(Map<String, dynamic> json) {
-    return SignUpModel(
+  factory GlobalResponse.fromJson(Map<String, dynamic> json) {
+    return GlobalResponse(
       status: json['status'],
       message: json['message'],
     );

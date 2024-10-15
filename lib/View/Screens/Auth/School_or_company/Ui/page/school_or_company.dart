@@ -9,6 +9,7 @@ import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widge
 import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/text_textbutton.dart';
 import 'package:project_graduation/View/Screens/Auth/School_account/Ui/pages/school_account.dart';
 import 'package:project_graduation/View/Screens/Auth/School_or_company/Ui/Widget/company_or_school_icons.dart';
+import 'package:project_graduation/View/Screens/Auth/Sign%20in/Ui/page/sign_in.dart';
 import 'package:project_graduation/core/Theming/colors/colors.dart';
 import 'package:project_graduation/core/Theming/decoration/decoration.dart';
 import 'package:project_graduation/core/Theming/fonts/fonts.dart';
@@ -49,7 +50,9 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
                   text_textbutton(
                     text: "Already have an account?",
                     buttontext: 'Log in',
-                    ontap: () {},
+                    ontap: () {
+                      context.navigateTo(SignInScreen());
+                    },
                   ),
                   size.height(20),
                   MainTiltleWidget(text: "Account Type", fontSize: 15),
@@ -60,22 +63,23 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              checked_company = !checked_company;
+                              checked_company =true;
+                              
                             });
                           },
                           child: Company_or_school_icons(
-                            checked: !checked_company,
+                            checked: checked_company,
                             icon: Icons.school,
                             text: 'School',
                           )),
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              checked_company = true;
+                              checked_company = false;
                             });
                           },
                           child: Company_or_school_icons(
-                            checked: checked_company,
+                            checked: !checked_company,
                             icon: CupertinoIcons.building_2_fill,
                             text: 'Company',
                           )),
@@ -86,8 +90,13 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
                       text: "Next",
                       onTap: () {
                         checked_company
-                            ? context.navigateTo(const SchoolAccountScreen())
-                            : context.navigateTo(const SchoolAccountScreen());
+                            ? context.navigateTo( SchoolAccountScreen())
+                            // 
+                            
+                            :null;
+                          
+                           
+                           
                       }),
                   size.height(10),
                   Row(
@@ -114,4 +123,3 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
     );
   }
 }
-

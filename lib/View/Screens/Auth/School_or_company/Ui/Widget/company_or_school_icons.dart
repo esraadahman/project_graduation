@@ -19,16 +19,17 @@ class Company_or_school_icons extends StatelessWidget {
         width: 150,
         height: 150,
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
             color: ColorsClass.background,
             border: Border.all(
-                color: checked ? ColorsClass.primary : ColorsClass.background)),
+                color: checked ? ColorsClass.primary : ColorsClass.background , width: 2)),
         child: Column(
           children: [
             SizedBox(height: 35), // Use SizedBox for spacing
             Icon(
               icon,
               size: 60,
-              color: ColorsClass.sub_text,
+              color: checked? ColorsClass.primary:ColorsClass.sub_text,
             ),
             Text(text),
           ],
@@ -36,14 +37,14 @@ class Company_or_school_icons extends StatelessWidget {
       ),
 
       checked
-          ? Positioned(
-              right: 1,
-              bottom: 2,
-              child: Image.asset(
-                'assets/images/Tick_Color.png',
-                height: 20,
-                width: 20,
-              ),
+          ? const Positioned(
+              right: 0,
+              bottom: 1,
+              child:CircleAvatar(
+                radius: 10,
+                backgroundColor: ColorsClass.primary,
+                child: Icon(Icons.check ,color: Colors.white,size: 13,),
+              )
             )
           : Container(),
     ]);

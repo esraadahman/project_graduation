@@ -30,7 +30,40 @@ class SignUpScreen extends StatelessWidget {
       create: (context) => SignUpCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
       child: BlocConsumer<SignUpCubit, SignUpState>(
         listener: (context, state) {
-          // TODO: implement listener
+          if (state is SignUpSuccess) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+            context.navigateTo(SignInScreen());
+          } else if (state is SignUpFailure) {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text("Alert!"),
+                  content: Text(state.errMessage ?? "An error occurred."),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Close the dialog
+                        context.navigateTo(
+                            SignInScreen()); // Navigate to the login screen
+                      },
+                      child: const Text("Login instead"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Close the dialog
+                      },
+                      child: Text("Cancel"),
+                    ),
+                  ],
+                );
+              },
+            );
+          }
         },
         builder: (context, state) {
           final cubit = BlocProvider.of<SignUpCubit>(context);
@@ -105,7 +138,17 @@ class SignUpScreen extends StatelessWidget {
                                   },
                                   text: "Register asCompany Or School")),
                           size.height(15.h),
-                          const ORWithWidget(),
+                          ORWithWidget(
+                            ontap1: () {
+                              cubit.SignUpWithGitHub();
+                            },
+                            ontap2: () {
+                              cubit.signUpWithGoogle();
+                            },
+                            ontap3: () {
+                              cubit.SignUpWithFaceBook();
+                            },
+                          ),
                           size.height(30.h)
                         ],
                       ),

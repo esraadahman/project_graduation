@@ -12,42 +12,61 @@ import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Page/
 import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/confirmbutton.dart';
 import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/TextButtonWidgetLoginOrSignUp.dart';
 import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/alradyHaveAccountOrNot.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/checkButton.dart';
 import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/custominputFiled.dart';
 import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/headingTextWidgets.dart';
-import 'package:project_graduation/View/Screens/Auth/Sign%20in/Ui/Widgets/orwithWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/Sign%20in/cubit/cubit/sign_in_cubit.dart';
+import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/starOurjuarnyfromhere.dart';
 import 'package:project_graduation/View/Screens/Auth/Sign%20up/Ui/page/sign_up.dart';
-import 'package:project_graduation/View/Screens/Auth/forget_pass_that_send_email/Ui/page/forgot.dart';
+import 'package:project_graduation/View/Screens/Auth/forget_pass_that_send_email/cubit/cubit/forget_pass_email_cubit.dart';
 import 'package:project_graduation/repo/AuthRepo.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class ForgetPassThatSendEmail extends StatefulWidget {
+  const ForgetPassThatSendEmail({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<ForgetPassThatSendEmail> createState() =>
+      _ForgetPassThatSendEmailState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignInCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
-      child: BlocConsumer<SignInCubit, SignInState>(
+      create: (context) =>
+          ForgetPassEmailCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
+      child: BlocConsumer<ForgetPassEmailCubit, ForgetPassEmailState>(
         listener: (context, state) {
-          // TODO: implement listener
+          // Handle success state and navigate
+          if (state is ForgetPassEmailSuccess) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Email sent successfully"),
+              ),
+            );
+
+            // Ensure you're navigating to the correct screen
+            context.navigateTo(const OTP_Verification());
+          }
+
+          // Handle failure state, if any
+          if (state is ForgetPassEmailFail) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text("Failed"),
+              ),
+            );
+          }
         },
         builder: (context, state) {
-          final cubit = BlocProvider.of<SignInCubit>(context);
+          final cubit = BlocProvider.of<ForgetPassEmailCubit>(context);
           return Scaffold(
             body: Stack(
               children: [
-                bacground_widget(),
+                const bacground_widget(),
                 Align(
                   alignment: Alignment.center,
                   child: Container(
-                    width: 320.w,
-                    height: 510.h,
+                    width: 330.w,
+                    height: 400.h,
                     decoration: BoxDecoration(
                       color: ColorsClass.background,
                       borderRadius: BorderRadius.circular(10.r),
@@ -56,19 +75,23 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: Column(
                         children: [
                           size.height(10.h),
-                          const HeadingTextWidget(text: "Log in"),
-                          size.height(5.h),
+                          const HeadingTextWidget(
+                              text: "You forgot your password"),
+                          size.height(15.h),
+                          const StartOurJourneyFromHere(
+                              text:
+                                  'To get you back to your account write\n your email to send you the link'),
                           size.height(10.h),
                           Row(
                             children: [
                               size.width(10.w),
                               const AlreadyHaveAnAccountOrNot(
-                                  content: "Don't have an account?"),
+                                  content: "Did you remember your password?"),
                               TextButtonWidgetLoginOrSignUp(
                                   onTap: () {
                                     context.navigateTo(const SignUpScreen());
                                   },
-                                  text: "Create a new account")
+                                  text: "Log In")
                             ],
                           ),
                           size.height(20.h),
@@ -78,52 +101,31 @@ class _SignInScreenState extends State<SignInScreen> {
                             controller: cubit.emailController,
                           ),
                           size.height(20.h),
-                          CustomInputField(
-                            labelText: "Password",
-                            hintText: "Enter your password",
-                            suffixIcon: true,
-                            obscureText: true,
-                            controller: cubit.passwordController,
-                          ),
-                          size.height(20.h),
                           Confirmbutton(
-                              text: "Log in",
-                              onTap: () {
-                                cubit.signin();
-                                //  context.navigateTo(LoginSuccess());
-                              }),
+                            text: "Next",
+                            onTap: () {
+                              cubit.forgetPassword();
+                            },
+                          ),
                           size.height(5.h),
                           Row(
                             children: [
-                              Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: TextButtonWidgetLoginOrSignUp(
-                                      onTap: () {
-                                        context.navigateTo(
-                                            ForgetPassThatSendEmail());
-                                      },
-                                      text: "Forgot your password?")),
-                              const GradientCheckBoxWidget(text: "Remember me")
+                              size.width(10.w),
+                              const AlreadyHaveAnAccountOrNot(
+                                  content: "Are you facing any problems?"),
+                              TextButtonWidgetLoginOrSignUp(
+                                  onTap: () {
+                                    context.navigateTo(const SignUpScreen());
+                                  },
+                                  text: "Contact support")
                             ],
                           ),
                           size.height(15.h),
-                          ORWithWidget(
-                            ontap1: () {
-                              cubit.SignUpWithGitHub();
-                            },
-                            ontap2: () {
-                              cubit.signUpWithGoogle();
-                            },
-                            ontap3: () {
-                              cubit.SignUpWithFaceBook();
-                            },
-                          ),
-                          size.height(30.h)
                         ],
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           );

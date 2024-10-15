@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:project_graduation/Core/api/endPointes.dart';
 import 'package:project_graduation/Core/errors/regesrtrationerror.dart';
 import 'package:project_graduation/repo/AuthRepo.dart';
 
@@ -30,9 +31,38 @@ class SignUpCubit extends Cubit<SignUpState> {
 
      response.fold((errormessage) {
       emit(SignUpFailure(errMessage: errormessage));
-    }, (SignUpModel) {
-      emit(SignUpSuccess(message: SignUpModel.message));
+    }, (GlobalResponse) {
+      emit(SignUpSuccess(message: GlobalResponse.message));
     });
   }
 
+void signUpWithGoogle() async{
+    emit(SignUPWithGoogleLoading());
+    
+      final response = await  auth.signUpWithGoogle();
+    response.fold((errormessage) {
+      emit(SignUPWithGoogleFailed());
+    }, (Error) {
+      emit(SignUPWithGoogleSuccess());
+    });
+
+  }
+void SignUpWithFaceBook() async{
+  emit(SignUPWithFaceBookLoading());
+   final response = await  auth.signUpWithFacebook();
+    response.fold((errormessage) {
+      emit(SignUPWithFaceBookFailed());
+    }, (Error) {
+      emit(SignUPWithFaceBookSuccess());
+    });
+}
+ void SignUpWithGitHub() async {
+ emit(SignUPWithGitHubLoading());
+   final response = await  auth.signUpWithGitHub();
+    response.fold((errormessage) {
+      emit(SignUPWithGitHubFailed());
+    }, (Error) {
+      emit(SignUPWithGitHubSuccess());
+    });
+ }
 }

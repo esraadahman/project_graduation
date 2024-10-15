@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:project_graduation/Core/Theming/colors/colors.dart';
 
-
 class PhoneNumberField extends StatelessWidget {
-  const PhoneNumberField({super.key});
+  const PhoneNumberField({super.key, this.controller});
 
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,11 +35,11 @@ class PhoneNumberField extends StatelessWidget {
                   borderSide:
                       const BorderSide(color: ColorsClass.sub_text, width: 1)),
             ),
-            initialCountryCode:
-                'US', 
+            initialCountryCode: 'US',
             onChanged: (phone) {
               print(phone.completeNumber); // Prints the complete phone number
             },
+            controller: controller,
           ),
         ),
       ],

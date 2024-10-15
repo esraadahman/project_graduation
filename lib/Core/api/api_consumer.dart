@@ -1,5 +1,3 @@
-import 'package:dio/src/options.dart';
-
 abstract class ApiConsumer {
   Future<dynamic> get(
     String path, {
@@ -12,7 +10,7 @@ abstract class ApiConsumer {
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   });
-    Future<dynamic> put(
+  Future<dynamic> put(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -22,7 +20,7 @@ abstract class ApiConsumer {
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
-   bool isFromData = false,
+    bool isFromData = false,
   });
   Future<dynamic> delete(
     String path, {

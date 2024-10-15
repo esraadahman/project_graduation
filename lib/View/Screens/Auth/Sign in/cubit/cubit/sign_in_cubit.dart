@@ -28,4 +28,33 @@ class SignInCubit extends Cubit<SignInState> {
       emit(SignInSuccess());
     });
   }
+  void signUpWithGoogle() async{
+    emit(SignUPWithGoogleLoading());
+    
+      final response = await  userrepo.signUpWithGoogle();
+    response.fold((errormessage) {
+      emit(SignUPWithGoogleFailed());
+    }, (Error) {
+      emit(SignUPWithGoogleSuccess());
+    });
+
+  }
+void SignUpWithFaceBook() async{
+  emit(SignUPWithFaceBookLoading());
+   final response = await  userrepo.signUpWithFacebook();
+    response.fold((errormessage) {
+      emit(SignUPWithFaceBookFailed());
+    }, (Error) {
+      emit(SignUPWithFaceBookSuccess());
+    });
+}
+ void SignUpWithGitHub() async {
+ emit(SignUPWithGitHubLoading());
+   final response = await  userrepo.signUpWithGitHub();
+    response.fold((errormessage) {
+      emit(SignUPWithGitHubFailed());
+    }, (Error) {
+      emit(SignUPWithGitHubSuccess());
+    });
+ }
 }

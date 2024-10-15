@@ -17,3 +17,16 @@ class SignUpFailure extends  SignUpState{
 
   SignUpFailure({this.errMessage, this.errorModel});
 }
+
+ class SignUPWithGoogleLoading extends SignUpState{}
+ class SignUPWithGoogleSuccess extends SignUpState{}
+  class SignUPWithGoogleFailed extends SignUpState{}
+
+
+ class SignUPWithGitHubLoading extends SignUpState{}
+ class SignUPWithGitHubSuccess extends SignUpState{}
+  class SignUPWithGitHubFailed extends SignUpState{}
+
+ class SignUPWithFaceBookLoading extends SignUpState{}
+ class SignUPWithFaceBookSuccess extends SignUpState{}
+  class SignUPWithFaceBookFailed extends SignUpState{}

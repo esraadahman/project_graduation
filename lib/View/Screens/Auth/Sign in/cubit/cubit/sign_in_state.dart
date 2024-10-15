@@ -13,3 +13,17 @@ final class SignInfailer extends SignInState {
 
   SignInfailer({required this.errorMessage});
 }
+
+
+ class SignUPWithGoogleLoading extends SignInState{}
+ class SignUPWithGoogleSuccess extends SignInState{}
+  class SignUPWithGoogleFailed extends SignInState{}
+
+
+ class SignUPWithGitHubLoading extends SignInState{}
+ class SignUPWithGitHubSuccess extends SignInState{}
+  class SignUPWithGitHubFailed extends SignInState{}
+
+ class SignUPWithFaceBookLoading extends SignInState{}
+ class SignUPWithFaceBookSuccess extends SignInState{}
+  class SignUPWithFaceBookFailed extends SignInState{}
