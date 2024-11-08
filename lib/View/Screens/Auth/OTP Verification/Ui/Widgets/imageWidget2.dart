@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class imageWidget2 extends StatelessWidget {
   imageWidget2({super.key, required this.image_src});

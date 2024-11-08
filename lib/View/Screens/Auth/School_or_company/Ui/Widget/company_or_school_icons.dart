@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/Core/Theming/colors/colors.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class Company_or_school_icons extends StatelessWidget {
   Company_or_school_icons(

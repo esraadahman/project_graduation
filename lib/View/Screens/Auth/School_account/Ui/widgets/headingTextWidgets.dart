@@ -1,6 +1,4 @@
-
-import 'package:flutter/material.dart';
-import 'package:project_graduation/Core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 
 class HeadingTextWidget extends StatelessWidget {

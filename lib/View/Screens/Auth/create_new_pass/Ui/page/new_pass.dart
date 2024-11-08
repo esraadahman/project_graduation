@@ -1,31 +1,14 @@
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project_graduation/Core/Routing/routing.dart';
-import 'package:project_graduation/Core/Theming/colors/colors.dart';
-import 'package:project_graduation/Core/Theming/size/size.dart';
-import 'package:project_graduation/Core/api/dio_consumer.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/backgroundWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/confirmbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/custominputFiled.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/headingTextWidgets.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/starOurjuarnyfromhere.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/textAfterPassWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/change_pass_correct/Ui/Page/change_pass_correct.dart';
 import 'package:project_graduation/View/Screens/Auth/create_new_pass/cubit/cubit/new_password_cubit.dart';
-import 'package:project_graduation/repo/AuthRepo.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class CreateNewPass extends StatefulWidget {
-  const CreateNewPass({super.key});
+  CreateNewPass({super.key});
 
   @override
   State<CreateNewPass> createState() => _CreateNewPassState();
 }
 
 class _CreateNewPassState extends State<CreateNewPass> {
-
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -34,7 +17,7 @@ class _CreateNewPassState extends State<CreateNewPass> {
       child: BlocConsumer<NewPasswordCubit, NewPasswordState>(
         listener: (context, state) {
           if (state is NewPasswordSuccess) {
-            context.navigateTo(ChangePassCorrect());
+            context.navigateTo(const ChangePassCorrect());
           }
         },
         builder: (context, state) {
@@ -42,7 +25,7 @@ class _CreateNewPassState extends State<CreateNewPass> {
           return Scaffold(
             body: Stack(
               children: [
-                bacground_widget(),
+                const bacground_widget(),
                 Align(
                   alignment: Alignment.center,
                   child: Container(
@@ -56,15 +39,20 @@ class _CreateNewPassState extends State<CreateNewPass> {
                       child: Column(
                         children: [
                           size.height(10.h),
-                          const HeadingTextWidget(text: "Create new password"),
+                          HeadingTextWidget(
+                              text: LangClass.translate(
+                                  context, "createNewPassword")),
                           size.height(15.h),
-                          const StartOurJourneyFromHere(
-                              text: 'Return to your journey'),
+                          StartOurJourneyFromHere(
+                              text: LangClass.translate(
+                                  context, "returnToJourney")),
                           size.height(10.h),
                           size.height(20.h),
                           CustomInputField(
-                            labelText: "New Password",
-                            hintText: "Please enter your password",
+                            labelText:
+                                LangClass.translate(context, "newPassword"),
+                            hintText:
+                                LangClass.translate(context, "enterPassword"),
                             suffixIcon: false,
                             obscureText: true,
                             controller: cubit.pass,
@@ -75,8 +63,10 @@ class _CreateNewPassState extends State<CreateNewPass> {
                           const TextAfterPassWidget(),
                           size.height(20.h),
                           CustomInputField(
-                            labelText: "Confirm Password",
-                            hintText: "Please enter your password again",
+                            labelText:
+                                LangClass.translate(context, "confirmPassword"),
+                            hintText: LangClass.translate(
+                                context, "enterPasswordAgain"),
                             suffixIcon: false,
                             obscureText: true,
                             controller: cubit.confirmPass,
@@ -99,14 +89,13 @@ class _CreateNewPassState extends State<CreateNewPass> {
                             ),
                           size.height(20.h),
                           Confirmbutton(
-                              text: "Reset Password",
+                              text:
+                                  LangClass.translate(context, "resetPassword"),
                               onTap: () {
                                 cubit
                                     .validatePasswords(); // Validate on button press
                                 if (state is! NewPasswordMisMatch) {
-                                 
-                                  cubit
-                                      .CreatNewPass(); 
+                                  cubit.CreatNewPass();
                                 }
                               }),
                           size.height(5.h),

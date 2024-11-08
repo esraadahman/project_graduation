@@ -1,16 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/Core/Theming/colors/colors.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class TextAfterPassWidget extends StatelessWidget {
   const TextAfterPassWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 17.0),
+    return  Padding(
+      padding: const EdgeInsets.only(left: 17.0),
       child: Text(
-        "Use 8 characters or more with a mix letters , numbers and symbols",
-        style: TextStyle(
+       LangClass.translate(context, 'password_guideline'),
+        style: const TextStyle(
             color: ColorsClass.password_text, fontWeight: FontWeight.bold),
       ),
     );

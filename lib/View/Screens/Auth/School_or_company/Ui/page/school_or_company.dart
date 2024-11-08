@@ -1,19 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:project_graduation/Core/Routing/routing.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/backgroundWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/main_tilte.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/subtextWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/confirmbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/text_textbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/pages/school_account.dart';
-import 'package:project_graduation/View/Screens/Auth/School_or_company/Ui/Widget/company_or_school_icons.dart';
-import 'package:project_graduation/View/Screens/Auth/Sign%20in/Ui/page/sign_in.dart';
-import 'package:project_graduation/core/Theming/colors/colors.dart';
-import 'package:project_graduation/core/Theming/decoration/decoration.dart';
-import 'package:project_graduation/core/Theming/fonts/fonts.dart';
-import 'package:project_graduation/core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class SchoolOrCompany extends StatefulWidget {
   SchoolOrCompany({super.key});
@@ -40,22 +26,25 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
                 children: [
                   size.height(25),
                   MainTiltleWidget(
-                    text: "New account",
+                    text: LangClass.translate(context, "new_account"),
                     fontSize: 23,
                   ),
                   size.height(5),
                   subtextWidget(
-                      text: "Start your journey from here", fontsize: 15),
+                      text: LangClass.translate(context, "start_journey"),
+                      fontsize: 15),
                   size.height(10),
                   text_textbutton(
-                    text: "Already have an account?",
-                    buttontext: 'Log in',
+                    text: LangClass.translate(context, "already_have_account"),
+                    buttontext: LangClass.translate(context, "login"),
                     ontap: () {
                       context.navigateTo(SignInScreen());
                     },
                   ),
                   size.height(20),
-                  MainTiltleWidget(text: "Account Type", fontSize: 15),
+                  MainTiltleWidget(
+                      text: LangClass.translate(context, "account_type"),
+                      fontSize: 15),
                   size.height(15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -63,14 +52,13 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              checked_company =true;
-                              
+                              checked_company = true;
                             });
                           },
                           child: Company_or_school_icons(
                             checked: checked_company,
                             icon: Icons.school,
-                            text: 'School',
+                            text: LangClass.translate(context, "school"),
                           )),
                       GestureDetector(
                           onTap: () {
@@ -81,22 +69,19 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
                           child: Company_or_school_icons(
                             checked: !checked_company,
                             icon: CupertinoIcons.building_2_fill,
-                            text: 'Company',
+                            text: LangClass.translate(context, "company"),
                           )),
                     ],
                   ),
                   size.height(50),
                   Confirmbutton(
-                      text: "Next",
+                      text:   LangClass.translate(context, "next"),
                       onTap: () {
                         checked_company
-                            ? context.navigateTo( SchoolAccountScreen())
-                            // 
-                            
-                            :null;
-                          
-                           
-                           
+                            ? context.navigateTo(SchoolAccountScreen())
+                            //
+
+                            : null;
                       }),
                   size.height(10),
                   Row(
@@ -105,7 +90,7 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
                       TextButton(
                           onPressed: () {},
                           child: Text(
-                            "Register as Regular User",
+                            LangClass.translate(context, "register_as_user"),
                             style: styling.subtitle.copyWith(
                                 color: ColorsClass.primary,
                                 decoration: TextDecoration.underline,

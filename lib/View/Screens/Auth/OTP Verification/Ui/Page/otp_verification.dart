@@ -1,24 +1,8 @@
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_graduation/Core/Routing/routing.dart';
-import 'package:project_graduation/Core/api/dio_consumer.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/backgroundWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/main_tilte.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/subtextWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/confirmbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/emailWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/imageWidget2.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/text_textbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/textfiledWidget.dart';
 import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/cubit/cubit/otp_code_cubit.dart';
-import 'package:project_graduation/View/Screens/Auth/create_new_pass/Ui/page/new_pass.dart';
-import 'package:project_graduation/core/Theming/decoration/decoration.dart';
-import 'package:project_graduation/core/Theming/size/size.dart';
-import 'package:project_graduation/repo/AuthRepo.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class OTP_Verification extends StatefulWidget {
-  const OTP_Verification({super.key});
+  OTP_Verification({super.key});
 
   @override
   State<OTP_Verification> createState() => _OTP_VerificationState();
@@ -38,21 +22,14 @@ class _OTP_VerificationState extends State<OTP_Verification> {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: const Text("Alert!"),
-                  content: Text("Check your email again"),
+                  title: Text(LangClass.translate(context, "alert")),
+                  content: Text(LangClass.translate(context, "checkEmail")),
                   actions: [
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).pop(); // Close the dialog
-                    //     // Navigate to the login screen
-                    //   },
-                    //   child: const Text("Login instead"),
-                    // ),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).pop(); // Close the dialog
                       },
-                      child: Text("OK"),
+                      child: Text(LangClass.translate(context, "ok")),
                     ),
                   ],
                 );
@@ -81,14 +58,15 @@ class _OTP_VerificationState extends State<OTP_Verification> {
                                   : "assets/images/Clip path group (1).png"),
                           size.height(25),
                           MainTiltleWidget(
-                            text: "OTP Verification",
+                            text: LangClass.translate(
+                                context, "otp_verification"),
                             fontSize: 20,
                           ),
                           size.height(20),
                           subtextWidget(
-                              fontsize: 14,
-                              text:
-                                  "We will send you a one-time\npassword for this email"),
+                            fontsize: 14,
+                            text: LangClass.translate(context, "otp_message"),
+                          ),
                           size.height(10),
                           const emailWidget(),
                           size.height(30),
@@ -113,9 +91,9 @@ class _OTP_VerificationState extends State<OTP_Verification> {
                             Row(
                               children: [
                                 size.width(15),
-                                const Text(
-                                  'Wrong OTP code entered please try again',
-                                  style: TextStyle(
+                                Text(
+                                  LangClass.translate(context, "wrongOtp"),
+                                  style: const TextStyle(
                                       color: Colors.red,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 11.5),
@@ -127,8 +105,9 @@ class _OTP_VerificationState extends State<OTP_Verification> {
                             ontap: () {
                               cubit.resendEmail();
                             },
-                            text: 'Did not receive the message?',
-                            buttontext: "Resend",
+                            text:
+                                LangClass.translate(context, "resend_message"),
+                            buttontext: LangClass.translate(context, "resend"),
                           ),
                           size.height(30),
                           Confirmbutton(
@@ -139,7 +118,7 @@ class _OTP_VerificationState extends State<OTP_Verification> {
 
                               cubit.CheckOtpCode();
                             },
-                            text: 'Confirm',
+                            text:  LangClass.translate(context, "confirm"),
                           ),
                         ],
                       ),

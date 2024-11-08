@@ -1,25 +1,5 @@
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project_graduation/Core/Routing/routing.dart';
-import 'package:project_graduation/Core/Theming/colors/colors.dart';
-import 'package:project_graduation/Core/Theming/size/size.dart';
-import 'package:project_graduation/Core/api/dio_consumer.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/backgroundWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/confirmbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/TextButtonWidgetLoginOrSignUp.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/alradyHaveAccountOrNot.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/checkButton.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/custominputFiled.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/headingTextWidgets.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/phoneNumberFiled.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/starOurjuarnyfromhere.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/textAfterPassWidget.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 import 'package:project_graduation/View/Screens/Auth/School_account/cubit/cubit/school_account_cubit.dart';
-import 'package:project_graduation/View/Screens/Auth/Sign%20in/Ui/page/sign_in.dart';
-import 'package:project_graduation/View/Screens/Auth/createAccountSuccessfully/Ui/page/create_account_succefully.dart';
-import 'package:project_graduation/repo/AuthRepo.dart';
 
 class SchoolAccountScreen extends StatelessWidget {
   SchoolAccountScreen({super.key});
@@ -34,7 +14,7 @@ class SchoolAccountScreen extends StatelessWidget {
       child: BlocConsumer<SchoolAccountCubit, SchoolAccountState>(
         listener: (context, state) {
           if (state is SchoolAccountSccess) {
-            context.navigateTo(const CreateAccountSuccefully());
+            context.navigateTo(CreateAccountSuccefully());
           }
         },
         builder: (context, state) {
@@ -42,7 +22,7 @@ class SchoolAccountScreen extends StatelessWidget {
           return Scaffold(
             body: Stack(
               children: [
-                const bacground_widget(),
+                bacground_widget(),
                 Align(
                   alignment: Alignment.center,
                   child: Container(
@@ -56,55 +36,65 @@ class SchoolAccountScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           size.height(10),
-                          const HeadingTextWidget(text: "School account"),
+                          HeadingTextWidget(
+                            text:
+                                LangClass.translate(context, "school_account"),
+                          ),
                           size.height(5),
-                          const StartOurJourneyFromHere(
-                            text: "Start your journey from here",
+                          StartOurJourneyFromHere(
+                            text: LangClass.translate(context, 'start_journey'),
                           ),
                           size.height(10.h),
                           Row(
                             children: [
                               size.width(10),
-                              const AlreadyHaveAnAccountOrNot(
-                                  content: "Already have an account?"),
+                              AlreadyHaveAnAccountOrNot(
+                                content: LangClass.translate(
+                                    context, 'already_have_account'),
+                              ),
                               TextButtonWidgetLoginOrSignUp(
                                   onTap: () {
-                                    context.navigateTo(const SignInScreen());
+                                    context.navigateTo(SignInScreen());
                                   },
                                   text: "Login")
                             ],
                           ),
                           size.height(20),
                           CustomInputField(
-                            labelText: "Full Name",
-                            hintText: "Enter your first and last name",
+                            labelText:
+                                LangClass.translate(context, "full_name"),
+                            hintText:
+                                LangClass.translate(context, "enter_full_name"),
                             controller: cubit.fullNameController,
                           ),
                           size.height(20),
                           CustomInputField(
-                            labelText: "Email",
-                            hintText: "Enter your email",
+                            labelText: LangClass.translate(context, 'email'),
+                            hintText:
+                                LangClass.translate(context, 'enter_email'),
                             controller: cubit.emailController,
                           ),
                           size.height(20),
                           PhoneNumberField(
                             controller: cubit.phoneController,
                           ),
-                          const GradientCheckBoxWidget(
-                            text: "Same as whatsApp number",
+                          GradientCheckBoxWidget(
+                            text:
+                                LangClass.translate(context, 'sameAsWhatsapp'),
                           ),
                           size.height(20.h),
                           CustomInputField(
-                            labelText: "Password",
-                            hintText: "Enter your password",
+                            labelText: LangClass.translate(context, 'password'),
+                            hintText:
+                                LangClass.translate(context, 'enter_password'),
                             suffixIcon: true,
                             obscureText: true,
                             controller: cubit.passController,
                           ),
-                          const TextAfterPassWidget(),
+                          TextAfterPassWidget(),
                           size.height(20),
                           Confirmbutton(
-                              text: "Sign up",
+                              text: LangClass.translate(context, 'signup'),
                               onTap: () {
                                 cubit.SignUpWith_SchoolAccount();
                               }),

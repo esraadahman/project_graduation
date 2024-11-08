@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/Core/Routing/routing.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/backgroundWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/main_tilte.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/subtextWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/confirmbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/imageWidget2.dart';
-import 'package:project_graduation/View/Screens/Auth/Sign%20in/Ui/page/sign_in.dart';
-import 'package:project_graduation/core/Theming/decoration/decoration.dart';
-import 'package:project_graduation/core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class ChangePassCorrect extends StatelessWidget {
   const ChangePassCorrect({super.key});
@@ -30,16 +21,17 @@ class ChangePassCorrect extends StatelessWidget {
                       image_src: "assets/images/Encapsulated Group.png"),
                   size.height(25),
                   MainTiltleWidget(
-                      text: "  Your password has been changed successfully",
+                      text: LangClass.translate(
+                          context, "passwordChangedSuccess"),
                       fontSize: 14),
                   size.height(15),
                   subtextWidget(
-                      text:
-                          "         Your password has been changed successfully",
+                      text: LangClass.translate(
+                          context, "passwordChangedSuccess"),
                       fontsize: 12),
                   size.height(50),
                   Confirmbutton(
-                      text: "Back to log in",
+                      text: LangClass.translate(context, "backToLogin"),
                       onTap: () {
                         context.navigateTo(SignInScreen());
                       })

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/core/Theming/fonts/fonts.dart';
-import 'package:project_graduation/core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class emailWidget extends StatelessWidget {
   const emailWidget({
@@ -13,7 +11,7 @@ class emailWidget extends StatelessWidget {
       children: [
         size.width(15),
         Text(
-          "email@example.email",
+          LangClass.translate(context, "email_placeholder"),
           style: styling.maintitle
               .copyWith(fontWeight: FontWeight.bold, fontSize: 15),
         ),

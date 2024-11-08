@@ -1,25 +1,8 @@
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project_graduation/Core/Routing/routing.dart';
-import 'package:project_graduation/Core/Theming/colors/colors.dart';
-import 'package:project_graduation/Core/Theming/size/size.dart';
-import 'package:project_graduation/Core/api/dio_consumer.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/Page/login-succes.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/backgroundWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Page/otp_verification.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/confirmbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/TextButtonWidgetLoginOrSignUp.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/alradyHaveAccountOrNot.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/checkButton.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/custominputFiled.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/headingTextWidgets.dart';
-import 'package:project_graduation/View/Screens/Auth/Sign%20in/Ui/Widgets/orwithWidget.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 import 'package:project_graduation/View/Screens/Auth/Sign%20in/cubit/cubit/sign_in_cubit.dart';
-import 'package:project_graduation/View/Screens/Auth/Sign%20up/Ui/page/sign_up.dart';
-import 'package:project_graduation/View/Screens/Auth/forget_pass_that_send_email/Ui/page/forgot.dart';
-import 'package:project_graduation/repo/AuthRepo.dart';
+import 'package:project_graduation/View/Screens/Home/UI/pages/Navi.dart';
+
+
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -56,41 +39,50 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: Column(
                         children: [
                           size.height(10.h),
-                          const HeadingTextWidget(text: "Log in"),
+                          HeadingTextWidget(
+                            text: LangClass.translate(context, "login"),
+                          ),
                           size.height(5.h),
                           size.height(10.h),
                           Row(
                             children: [
                               size.width(10.w),
-                              const AlreadyHaveAnAccountOrNot(
-                                  content: "Don't have an account?"),
+                              AlreadyHaveAnAccountOrNot(
+                                content:
+                                    LangClass.translate(context, 'no_account'),
+                              ),
                               TextButtonWidgetLoginOrSignUp(
-                                  onTap: () {
-                                    context.navigateTo(const SignUpScreen());
-                                  },
-                                  text: "Create a new account")
+                                onTap: () {
+                                  context.navigateTo( SignUpScreen());
+                                },
+                                text: LangClass.translate(
+                                    context, 'create_account'),
+                              )
                             ],
                           ),
                           size.height(20.h),
                           CustomInputField(
-                            labelText: "Email",
-                            hintText: "Enter your email",
+                            labelText: LangClass.translate(context, 'email'),
+                            hintText:
+                                LangClass.translate(context, 'enter_email'),
                             controller: cubit.emailController,
                           ),
                           size.height(20.h),
                           CustomInputField(
-                            labelText: "Password",
-                            hintText: "Enter your password",
+                            labelText: LangClass.translate(context, 'password'),
+                            hintText:
+                                LangClass.translate(context, 'enter_password'),
                             suffixIcon: true,
                             obscureText: true,
                             controller: cubit.passwordController,
                           ),
                           size.height(20.h),
                           Confirmbutton(
-                              text: "Log in",
+                              text:
+                                  LangClass.translate(context, "log_in_button"),
                               onTap: () {
-                                cubit.signin();
-                                //  context.navigateTo(LoginSuccess());
+                           //    cubit.signin();
+                                  context.navigateTo(NaviBar());
                               }),
                           size.height(5.h),
                           Row(
@@ -102,8 +94,11 @@ class _SignInScreenState extends State<SignInScreen> {
                                         context.navigateTo(
                                             ForgetPassThatSendEmail());
                                       },
-                                      text: "Forgot your password?")),
-                              const GradientCheckBoxWidget(text: "Remember me")
+                                      text: LangClass.translate(
+                                          context, "forgot_password"))),
+                              GradientCheckBoxWidget(
+                                  text: LangClass.translate(
+                                      context, "remember_me"))
                             ],
                           ),
                           size.height(15.h),

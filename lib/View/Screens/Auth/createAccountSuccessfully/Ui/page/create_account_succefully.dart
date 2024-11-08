@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/UI/widgets/backgroundWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/UI/widgets/main_tilte.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/UI/widgets/subtextWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/UI/Widgets/confirmbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/UI/Widgets/imageWidget2.dart';
-import 'package:project_graduation/core/Theming/decoration/decoration.dart';
-import 'package:project_graduation/core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class CreateAccountSuccefully extends StatelessWidget {
   const CreateAccountSuccefully({super.key});
@@ -24,18 +17,20 @@ class CreateAccountSuccefully extends StatelessWidget {
               child: Column(
                 children: [
                   size.height(20),
-                  imageWidget2(image_src: "assets/images/Encapsulated Group.png"),
+                  imageWidget2(
+                      image_src: "assets/images/Encapsulated Group.png"),
                   size.height(25),
                   MainTiltleWidget(
-                      text: "    Your account has been created successfully",
+                      text: LangClass.translate(context, "accountCreated"),
                       fontSize: 14),
                   size.height(15),
                   subtextWidget(
-                      text:
-                          "       start your journey now, What you are waiting for!",
+                      text: LangClass.translate(context, "startJourneyNow"),
                       fontsize: 12),
                   size.height(50),
-                  Confirmbutton(text: "Take me home", onTap: () {})
+                  Confirmbutton(
+                      text: LangClass.translate(context, "takeMeHome"),
+                      onTap: () {})
                 ],
               ),
             ),

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/core/Theming/colors/colors.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class Confirmbutton extends StatelessWidget {
   const Confirmbutton({super.key, required this.text, required this.onTap});

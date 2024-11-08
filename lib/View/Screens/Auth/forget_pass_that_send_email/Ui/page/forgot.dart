@@ -1,26 +1,8 @@
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project_graduation/Core/Routing/routing.dart';
-import 'package:project_graduation/Core/Theming/colors/colors.dart';
-import 'package:project_graduation/Core/Theming/size/size.dart';
-import 'package:project_graduation/Core/api/dio_consumer.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/Page/login-succes.dart';
-import 'package:project_graduation/View/Screens/Auth/Login_success/Ui/widgets/backgroundWidget.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Page/otp_verification.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Widgets/confirmbutton.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/TextButtonWidgetLoginOrSignUp.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/alradyHaveAccountOrNot.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/custominputFiled.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/headingTextWidgets.dart';
-import 'package:project_graduation/View/Screens/Auth/School_account/Ui/widgets/starOurjuarnyfromhere.dart';
-import 'package:project_graduation/View/Screens/Auth/Sign%20up/Ui/page/sign_up.dart';
 import 'package:project_graduation/View/Screens/Auth/forget_pass_that_send_email/cubit/cubit/forget_pass_email_cubit.dart';
-import 'package:project_graduation/repo/AuthRepo.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class ForgetPassThatSendEmail extends StatefulWidget {
-  const ForgetPassThatSendEmail({super.key});
+  ForgetPassThatSendEmail({super.key});
 
   @override
   State<ForgetPassThatSendEmail> createState() =>
@@ -38,20 +20,21 @@ class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
           // Handle success state and navigate
           if (state is ForgetPassEmailSuccess) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text("Email sent successfully"),
+              SnackBar(
+                content: Text(
+                    LangClass.translate(context, "email_sent_successfully")),
               ),
             );
 
             // Ensure you're navigating to the correct screen
-            context.navigateTo(const OTP_Verification());
+            context.navigateTo(OTP_Verification());
           }
 
           // Handle failure state, if any
           if (state is ForgetPassEmailFail) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text("Failed"),
+                content: Text(LangClass.translate(context, "failed")),
               ),
             );
           }
@@ -61,7 +44,7 @@ class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
           return Scaffold(
             body: Stack(
               children: [
-                const bacground_widget(),
+                bacground_widget(),
                 Align(
                   alignment: Alignment.center,
                   child: Container(
@@ -75,34 +58,37 @@ class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
                       child: Column(
                         children: [
                           size.height(10.h),
-                          const HeadingTextWidget(
-                              text: "You forgot your password"),
+                          HeadingTextWidget(
+                              text: LangClass.translate(
+                                  context, "forgot_password_main_text")),
                           size.height(15.h),
-                          const StartOurJourneyFromHere(
+                          StartOurJourneyFromHere(
                               text:
-                                  'To get you back to your account write\n your email to send you the link'),
+                                  LangClass.translate(context, "instruction")),
                           size.height(10.h),
                           Row(
                             children: [
                               size.width(10.w),
-                              const AlreadyHaveAnAccountOrNot(
-                                  content: "Did you remember your password?"),
+                              AlreadyHaveAnAccountOrNot(
+                                  content: LangClass.translate(
+                                      context, "remember_password")),
                               TextButtonWidgetLoginOrSignUp(
                                   onTap: () {
-                                    context.navigateTo(const SignUpScreen());
+                                    context.navigateTo(SignUpScreen());
                                   },
-                                  text: "Log In")
+                                  text: LangClass.translate(context, "login"))
                             ],
                           ),
                           size.height(20.h),
                           CustomInputField(
-                            labelText: "Email",
-                            hintText: "Enter your email",
+                            labelText: LangClass.translate(context, 'email'),
+                            hintText:
+                                LangClass.translate(context, 'enter_email'),
                             controller: cubit.emailController,
                           ),
                           size.height(20.h),
                           Confirmbutton(
-                            text: "Next",
+                            text: LangClass.translate(context, 'next'),
                             onTap: () {
                               cubit.forgetPassword();
                             },
@@ -111,13 +97,16 @@ class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
                           Row(
                             children: [
                               size.width(10.w),
-                              const AlreadyHaveAnAccountOrNot(
-                                  content: "Are you facing any problems?"),
+                              AlreadyHaveAnAccountOrNot(
+                                content: LangClass.translate(
+                                    context, 'facing_problems'),
+                              ),
                               TextButtonWidgetLoginOrSignUp(
                                   onTap: () {
-                                    context.navigateTo(const SignUpScreen());
+                                    context.navigateTo(SignUpScreen());
                                   },
-                                  text: "Contact support")
+                                  text: LangClass.translate(
+                                      context, 'contact_support'))
                             ],
                           ),
                           size.height(15.h),

@@ -7,7 +7,6 @@ import 'package:project_graduation/Core/hive_constants/hive_constants.dart';
 import 'package:project_graduation/ModelView/LoginModel/LoginModel.dart';
 import 'package:project_graduation/ModelView/Sign_UP/SignUpModel.dart';
 import 'package:project_graduation/ModelView/forgetPassword/forgetPassword.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -21,7 +20,7 @@ class AuthRepo {
   Future<Either<String, LoginModel>> sign_in(
       {required String email, required String pass}) async {
     try {
-      final response = await api.post(EndPoint.signin,
+      final response = await api.post(EndPoint.signIn,
           data: {ApiKey.email: email, ApiKey.password: pass}, isFromData: true);
       final user = LoginModel.fromJson(response);
 
@@ -37,7 +36,7 @@ class AuthRepo {
     required String name,
   }) async {
     try {
-      final response = await api.post(EndPoint.signup, isFromData: true, data: {
+      final response = await api.post(EndPoint.signUp, isFromData: true, data: {
         ApiKey.name: name,
         ApiKey.email: email,
         ApiKey.password: pass,
@@ -126,7 +125,7 @@ class AuthRepo {
       required String name,
       required String phone}) async {
     try {
-      final response = await api.post(EndPoint.signup, isFromData: true, data: {
+      final response = await api.post(EndPoint.signUp, isFromData: true, data: {
         ApiKey.name: name,
         ApiKey.email: email,
         ApiKey.password: pass,

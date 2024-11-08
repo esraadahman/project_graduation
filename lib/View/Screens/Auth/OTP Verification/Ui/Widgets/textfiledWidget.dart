@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/core/Theming/colors/colors.dart';
-import 'package:project_graduation/core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class TextFormWidget extends StatelessWidget {
-  TextFormWidget({super.key, required this.controller, required this.label, required this.onChanged});
+  TextFormWidget(
+      {super.key,
+      required this.controller,
+      required this.label,
+      required this.onChanged});
 
   final TextEditingController controller;
   final String label;
@@ -15,7 +17,7 @@ class TextFormWidget extends StatelessWidget {
       width: size.widthMedia(context, .15),
       color: ColorsClass.colorwhite,
       child: TextFormField(
-       // autofocus: true,
+        // autofocus: true,
         controller: controller,
         maxLength: 1,
         cursorColor: ColorsClass.primary,
@@ -35,13 +37,10 @@ class TextFormWidget extends StatelessWidget {
           ),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: ColorsClass.primary, width: 2),
-         
           ),
-          
         ),
         onChanged: onChanged,
         keyboardType: TextInputType.number,
-        
       ),
     );
   }

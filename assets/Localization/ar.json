@@ -1,0 +1,90 @@
+{
+  "_nameOfPage":" Login or sign up",
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "asguest": " او متابعة كضيف",
+
+
+    "_nameOfPage":" Login ",
+    
+  "no_account": "ليس لديك حساب؟",
+  "create_account": "إنشاء حساب جديد",
+  "email": "البريد الإلكتروني",
+  "enter_email": "أدخل بريدك الإلكتروني",
+  "password": "كلمة المرور",
+  "enter_password": "أدخل كلمة المرور",
+  "forgot_password": "هل نسيت كلمة المرور؟",
+  "remember_me": "تذكرني",
+  "log_in_button": "تسجيل الدخول",
+  "or_with": "أو بواسطة",
+  "copyright": "© 2024 Bridge It. جميع الحقوق محفوظة",
+"required":"مطلوب!",
+
+  "_nameOfPage":" OTPcode ",
+  "otp_verification": "التحقق من الرمز",
+  "otp_message": "سنرسل لك رمز مرور لمرة واحدة لهذا البريد الإلكتروني",
+  "email_placeholder": "email@example.email",
+  "resend_message": "لم تستلم الرسالة؟",
+  "resend": "إعادة الإرسال",
+  "timer_placeholder": "دق:ث",
+  "confirm": "تأكيد",
+   "wrongOtp": "تم إدخال رمز OTP خاطئ، يرجى المحاولة مرة أخرى",
+
+
+
+  "_nameOfPage":" Enter Email For forget pass",
+  "forgot_password_main_text": "لقد نسيت كلمة المرور الخاصة بك.",
+  "instruction": "لإعادتك إلى حسابك، اكتب بريدك\n الإلكتروني لإرسال الرابط إليك.",
+  "remember_password": "هل تذكرت كلمة المرور الخاصة بك؟",
+  "log_in": "تسجيل الدخول",
+  "next": "التالي",
+  "facing_problems": "هل تواجه أي مشاكل؟",
+  "contact_support": "تواصل مع الدعم.",
+  "email_sent_successfully": "تم إرسال البريد الإلكتروني بنجاح.",
+  "failed": "فشل.",
+
+
+  "_nameOfPage":" Sign Up",
+  "new_account": "حساب جديد",
+  "start_journey": "ابدأ رحلتك من هنا.",
+  "already_have_account": "هل لديك حساب بالفعل؟",
+  "full_name": "الاسم الكامل",
+  "enter_full_name": "أدخل اسمك الأول والأخير",
+  "password_guideline": "استخدم 8 أحرف أو أكثر مع مزيج  من الحروف والأرقام والرموز ",
+  "register_as": "سجل كشركة أو مدرسة",
+
+
+  "_nameOfPage":" School or company",
+  "basicInformation": "معلومات أساسية",
+  "legalInformation": "معلومات قانونية",
+  "phoneNumber": "رقم الهاتف",
+  "countryCode": "+1",
+  "enterPhone": "يرجى إدخال رقم هاتفك",
+  "sameAsWhatsapp": "نفس رقم WhatsApp",
+  "account_type" : "نوع الحساب",
+  "school":"مدرسة",
+   "company":"شركة",
+   "register_as_user": "التسجيل كمستخدم عادي",
+   "school_account": "حساب المدرسة",
+
+    "alert": "تنبيه!",
+  "checkEmail": "تحقق من بريدك الإلكتروني مرة أخرى",
+  "ok":"حسنا",
+
+
+  "_nameOfPage": "create account success",
+  "accountCreated": "تم إنشاء حسابك بنجاح",
+  "startJourneyNow": "ابدأ رحلتك الآن، ماذا تنتظر!",
+  "takeMeHome": "خذني إلى الصفحة الرئيسية",
+
+
+  "_nameOfPage": "new pass",
+  "createNewPassword": "إنشاء كلمة مرور جديدة",
+  "returnToJourney": "العودة إلى رحلتك",
+  "newPassword": "كلمة مرور جديدة",
+  "enterPassword": "يرجى إدخال كلمة المرور",
+  "passwordHint": "استخدم 8 أحرف أو أكثر مع مزيج من الأحرف والأرقام والرموز.",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "enterPasswordAgain": "يرجى إدخال كلمة المرور مرة أخرى",
+  "resetPassword": "إعادة تعيين كلمة المرور"
+}

@@ -1,7 +1,4 @@
-
-import 'package:flutter/material.dart';
-import 'package:project_graduation/Core/Theming/colors/colors.dart';
-import 'package:project_graduation/Core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class CustomInputField extends StatefulWidget {
   final String labelText;
@@ -32,10 +29,9 @@ class _CustomInputFieldState extends State<CustomInputField> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    
+
     return Container(
       width: size.width * 0.9,
-     
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
       child: Column(
         children: [
@@ -49,7 +45,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
                   color: ColorsClass.sub_text),
             ),
           ),
-       //   size.height(10),
+          //   size.height(10),
           SizedBox(
             width: 400,
             height: 50,
@@ -61,8 +57,8 @@ class _CustomInputFieldState extends State<CustomInputField> {
                 fillColor: Colors.white,
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide:
-                        const BorderSide(color: ColorsClass.sub_text, width: 1)),
+                    borderSide: const BorderSide(
+                        color: ColorsClass.sub_text, width: 1)),
                 isDense: (widget.isDense != null) ? widget.isDense : false,
                 hintText: widget.hintText,
                 hintStyle: const TextStyle(color: ColorsClass.sub_text),
@@ -88,7 +84,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: (textValue) {
                 if (textValue == null || textValue.isEmpty) {
-                  return 'required!';
+                  return LangClass.translate(context, 'required');
                 }
                 return null;
               },

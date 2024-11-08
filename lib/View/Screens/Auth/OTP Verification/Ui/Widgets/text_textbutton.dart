@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/core/Theming/colors/colors.dart';
-import 'package:project_graduation/core/Theming/fonts/fonts.dart';
-import 'package:project_graduation/core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class text_textbutton extends StatelessWidget {
   text_textbutton(
