@@ -12,12 +12,12 @@ class nameWorkSpace extends StatelessWidget {
       children: [
         Text(
           title,
-          style: styling.maintitle.copyWith(fontSize: 20),
+          style: styling.maintitle.copyWith(fontSize: 18.sp),
         ),
         Text(
          date,
           style:
-              styling.subtitle.copyWith(color: ColorsClass.date, fontSize: 13),
+              styling.subtitle.copyWith(color: ColorsClass.date, fontSize: width(context)/30),
         ),
       ],
     );

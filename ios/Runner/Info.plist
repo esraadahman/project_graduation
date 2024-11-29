@@ -56,6 +56,10 @@
     </dict>
 </array>
 
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Your description of photo library usage</string>
+<key>NSCameraUsageDescription</key>
+<string>Your description of camera usage</string>
 
 </dict>
 </plist>

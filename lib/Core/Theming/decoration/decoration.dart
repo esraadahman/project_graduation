@@ -18,6 +18,14 @@ class CustomDecoration {
     );
   }
 
+  static BoxDecoration grayDecoration2() {
+    return BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(10),
+      border: Border.all(color: ColorsClass.border_color),
+    );
+  }
+
   static BoxDecoration grayDecorationForSmall() {
     return BoxDecoration(
       color: Colors.white,

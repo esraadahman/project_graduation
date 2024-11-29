@@ -18,7 +18,7 @@ class membersWidget extends StatelessWidget {
         Text(
           "${num_member} Team Members  ",
           style:
-              styling.subtitle.copyWith(color: ColorsClass.date, fontSize: 13),
+              styling.subtitle.copyWith(color: ColorsClass.date, fontSize: 14.sp),
         ),
         Spacer(), // This will push the images to the right side
         SizedBox(

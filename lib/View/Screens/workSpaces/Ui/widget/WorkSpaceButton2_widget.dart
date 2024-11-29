@@ -3,21 +3,21 @@ import 'package:project_graduation/Core/Imports/common_imports.dart';
 class WorkSpaceButton2Widget extends StatelessWidget {
   const WorkSpaceButton2Widget(
       {super.key,
-      required this.icon,
+      required this.image,
       required this.innerText,
       required this.border,
       required this.newWorkSpace});
 
   final String innerText;
-  final Icon icon;
+  final String image;
   final bool border;
   final bool newWorkSpace;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: newWorkSpace ? 160.w : 85.w,
-      height: 20.h,
+      width: newWorkSpace ? 153.w : 66.w,
+      height: 40.h,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(
@@ -25,9 +25,16 @@ class WorkSpaceButton2Widget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          icon,
-          size.width(5),
-
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 5,
+            ),
+            child: SvgPicture.asset(
+              height: 20.0,
+              image,
+            ),
+          ),
+          size.width(3),
           ShaderMask(
             // ignore: prefer_const_constructors
             shaderCallback: (bounds) => LinearGradient(
@@ -38,17 +45,11 @@ class WorkSpaceButton2Widget extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ).createShader(bounds),
-            child: Text(
-              innerText,
-              style: TextStyle(
-                color: Colors.white, // This color will be ignored by ShaderMask
-                fontSize: 15.sp,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: Text(innerText,
+                style: styling.maintitle.copyWith(
+                    fontSize: newWorkSpace ? 14.sp : 12.sp,
+                    color: ColorsClass.colorwhite)),
           )
-          // Text(innerText,
-          // style: styling.maintitle.copyWith(fontSize: 16.sp,),)
         ],
       ),
     );

@@ -19,7 +19,7 @@ class containerOFImageOFWorkSpace extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: size.heightMedia(context, .45),
-      margin: const EdgeInsets.only(left: 10, right: 10),
+      margin: const EdgeInsets.only(left: 20, right: 20),
       padding: const EdgeInsets.only(left: 15, right: 15),
       decoration: CustomDecoration.grayDecoration(),
       child: Column(

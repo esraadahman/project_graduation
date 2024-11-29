@@ -19,11 +19,11 @@ class ColorsClass {
   static const Color lightGrey = Color(0xFFDDDDDD);
 
   //! colors for the on boarding screen
- 
+
   static const Color onBoard = Color(0xFF003268);
   static const Color colorwhite = Colors.white;
-  
-static const Color border_color = Color.fromARGB(255, 178, 184, 196);
+
+  static const Color border_color = Color.fromARGB(255, 178, 184, 196);
   static const LinearGradient appGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
@@ -32,4 +32,8 @@ static const Color border_color = Color.fromARGB(255, 178, 184, 196);
       light_gradient,
     ],
   );
+
+  static const Color complateColorText = Color(0xFF374151);
+  static const Color buttonColorPrimary = Color(0xFFF5FAFF);
+
 }

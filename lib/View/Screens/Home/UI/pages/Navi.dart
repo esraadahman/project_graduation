@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:project_graduation/Core/Imports/common_imports.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class NaviBar extends StatefulWidget {
   const NaviBar({super.key});
@@ -15,38 +16,48 @@ class _NaviBarState extends State<NaviBar> {
   final List<Widget> _pages = [
     const NavigateHomePage(),
     const ChatPage(),
-    //  const FilesPage(),
     Workspaces(),
     const ProfilePage(),
   ];
-  final iconList = <IconData>[
-    Icons.home,
-    CupertinoIcons.chat_bubble_text,
-    CupertinoIcons.doc_on_clipboard_fill,
-    Icons.person,
+
+  final svgIconList = <String>[
+    'assets/images/home-2.svg',
+    'assets/images/stash_user-group (2).svg',
+    'assets/images/ph_files-duotone.svg',
+    'assets/images/user.svg',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(184, 255, 255, 255),
+      backgroundColor: ColorsClass.colorwhite,
       floatingActionButton: CustomFloatingActionButton(
         onPressed: () {
           print("Floating Action Button Pressed");
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: AnimatedBottomNavigationBar(
-        icons: iconList,
+      bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+        itemCount: svgIconList.length,
+        tabBuilder: (int index, bool isActive) {
+          final color = isActive ? ColorsClass.light_gradient : Colors.grey;
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: SvgPicture.asset(
+              svgIconList[index],
+              color: color,
+              height: 24,
+              width: 24,
+              fit: BoxFit.contain,
+            ),
+          );
+        },
         activeIndex: _bottomNavIndex,
         gapLocation: GapLocation.center,
         notchSmoothness: NotchSmoothness.verySmoothEdge,
         leftCornerRadius: 32,
         rightCornerRadius: 32,
         onTap: (index) => setState(() => _bottomNavIndex = index),
-        activeColor: ColorsClass.light_gradient,
-        inactiveColor: Colors.grey,
-        iconSize: 33,
         backgroundColor: Colors.white,
         shadow: const BoxShadow(color: ColorsClass.lightGrey, blurRadius: 2),
       ),

@@ -18,11 +18,12 @@ class iconsRowWidget extends StatelessWidget {
               height: size.heightMedia(context, .07),
               padding: const EdgeInsets.all(8),
               margin: const EdgeInsets.only(
-                left: 10,
+                left: 20,
               ),
               decoration: CustomDecoration.grayDecorationForSmall(),
               child: SvgPicture.asset(
                 'assets/images/tabler_folders.svg',
+                 height: 32.h,
               )),
         ),
         GestureDetector(
@@ -34,10 +35,11 @@ class iconsRowWidget extends StatelessWidget {
               decoration: CustomDecoration.grayDecorationForSmall(),
               child: SvgPicture.asset(
                 'assets/images/mage_message-dots-round.svg',
+                height: 32.h,
               )),
         ),
         Container(
-            width: size.widthMedia(context, .65),
+            width: size.widthMedia(context, .60),
             height: size.heightMedia(context, .07),
             decoration: CustomDecoration.grayDecorationForSmall(),
             child: Row(

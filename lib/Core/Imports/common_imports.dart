@@ -78,3 +78,17 @@ export 'package:project_graduation/View/Screens/Home/UI/widget/line_chart.dart';
 export 'package:project_graduation/View/Screens/Home/UI/pages/Home.dart';
 
 export 'package:flutter_svg/svg.dart';
+
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Basics/NameInputFiled&Category.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/ProgressBarWidget.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Basics/objective&button.dart';
+export 'package:project_graduation/View/Screens/workSpaces/Ui/widget/HeaderTitle.dart';
+
+
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/Templates.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/stage/RadioButton.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/stage/confirmButtonPrimary.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/stage/dateFiled.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/stage/media.dart';
+
+export 'package:dotted_border/dotted_border.dart';

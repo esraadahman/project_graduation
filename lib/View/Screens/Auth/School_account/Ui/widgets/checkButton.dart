@@ -47,7 +47,7 @@ class _GradientCheckBoxWidgetState extends State<GradientCheckBoxWidget> {
           Text(
             widget.text,
             style: const TextStyle(
-              fontSize: 16.0,
+              fontSize: 14.0,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),

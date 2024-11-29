@@ -1,20 +1,13 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
 import 'package:project_graduation/Core/Language/applocalization.dart';
 import 'package:project_graduation/Core/hive_constants/hive_constants.dart';
 import 'package:project_graduation/CubitForLanguage/cubit/switch_lang_cubit.dart';
-import 'package:project_graduation/View/Screens/Auth/OTP%20Verification/Ui/Page/otp_verification.dart';
+import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/Basics.dart';
 import 'package:project_graduation/View/Screens/Auth/SignOptions/UI/page/SignInOrUp.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:project_graduation/View/Screens/Home/UI/pages/Home.dart';
-import 'package:project_graduation/View/Screens/Home/UI/pages/Navi.dart';
-import 'package:project_graduation/View/Screens/onBoarding/UI/page/onboarding.dart';
-import 'package:project_graduation/View/Screens/workSpaces/Ui/page/workSpaces.dart';
-import 'package:project_graduation/View/Screens/workSpaces/Ui/widget/bottomBar.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -72,15 +65,17 @@ class MyApp extends StatelessWidget {
                   },
                   builder: DevicePreview.appBuilder,
                   home:
-                       // OnBoardingScreen()
+                      // OnBoardingScreen()
                       //   Scaffold(
                       //   backgroundColor: Colors.white,
                       //   body: OnboardScreen(),
                       // ),
                       //   const SignInOrUpOption(),
                       //   Workspaces()
-                    //  NumberPageIndicatorExample()
-                   NaviBar()
+                      //  NumberPageIndicatorExample()
+                      // NaviBar()
+                        BasicsScreen()
+                     // SchoolAccountScreen()
                   //     HomeContent()
                   // SignUpScreen(),
                   //   home:JoinScreen()

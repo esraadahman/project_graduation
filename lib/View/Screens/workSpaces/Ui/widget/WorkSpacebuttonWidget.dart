@@ -3,7 +3,7 @@ import 'package:project_graduation/Core/Imports/common_imports.dart';
 class WorkSpaceButtonWidget extends StatelessWidget {
   const WorkSpaceButtonWidget(
       {super.key,
-      required this.icon,
+      required this.image,
       required this.innerText,
       required this.grad,
       required this.border,
@@ -11,7 +11,7 @@ class WorkSpaceButtonWidget extends StatelessWidget {
       required this.active});
 
   final String innerText;
-  final Icon icon;
+  final String image;
   final bool grad;
   final bool border;
   final bool progress;
@@ -20,8 +20,8 @@ class WorkSpaceButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: progress ? 150.w : 100.w,
-      height: 45.h,
+      width: progress ? 130.w : 89.w,
+      height: 40.h,
       decoration: BoxDecoration(
           gradient: grad ? ColorsClass.appGradient : null,
           borderRadius: BorderRadius.circular(10.r),
@@ -29,12 +29,21 @@ class WorkSpaceButtonWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          icon,
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 5,
+            ),
+            child: SvgPicture.asset(
+              height: 20.0,
+              color: active ? ColorsClass.colorwhite : ColorsClass.date,
+              image,
+            ),
+          ),
           size.width(5),
           Text(
             innerText,
             style: styling.maintitle.copyWith(
-                fontSize: 16.sp,
+                fontSize: 14.sp,
                 color: active ? ColorsClass.colorwhite : ColorsClass.date),
           )
         ],

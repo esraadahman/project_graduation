@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:project_graduation/Core/Imports/common_imports.dart';
-import 'package:project_graduation/View/Screens/workSpaces/Ui/widget/button2_widget.dart';
-import 'package:project_graduation/View/Screens/workSpaces/Ui/widget/buttonWidget.dart';
+import 'package:project_graduation/View/Screens/workSpaces/Ui/widget/HeaderTitle.dart';
+import 'package:project_graduation/View/Screens/workSpaces/Ui/widget/WorkSpaceButton2_widget.dart';
+import 'package:project_graduation/View/Screens/workSpaces/Ui/widget/WorkSpacebuttonWidget.dart';
 
 class Workspaces extends StatelessWidget {
   const Workspaces({super.key});
@@ -9,30 +10,12 @@ class Workspaces extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Work Spaces",
-          style: styling.maintitle.copyWith(fontSize: 25.sp),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              size: 30,
-            )),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.more_vert_rounded,
-                size: 25,
-              ))
-        ],
+      appBar: HeaderTitle(
+        title: "Work Spaces",
+        onMorePressed: () {},
       ),
       body: Column(children: [
-        size.height(20),
+        size.height(10),
         Container(
           width: width(context),
           height: 2.h,
@@ -43,10 +26,7 @@ class Workspaces extends StatelessWidget {
           children: [
             size.width(13),
             const WorkSpaceButtonWidget(
-              icon: Icon(
-                CupertinoIcons.timer,
-                color: ColorsClass.colorwhite,
-              ),
+              image: "assets/images/tabler_progress.svg",
               innerText: "In Progress",
               grad: true,
               border: false,
@@ -55,10 +35,7 @@ class Workspaces extends StatelessWidget {
             ),
             size.width(20),
             const WorkSpaceButtonWidget(
-              icon: Icon(
-                Icons.file_download_done_rounded,
-                color: ColorsClass.date,
-              ),
+              image: "assets/images/tabler_progress-check.svg",
               innerText: "Done",
               grad: false,
               border: true,
@@ -67,44 +44,35 @@ class Workspaces extends StatelessWidget {
             ),
           ],
         ),
-        size.height(30),
+        size.height(32),
         Container(
           height: 50.h,
           child: ListView(
             scrollDirection: Axis.horizontal,
             //shrinkWrap: true,
             children: [
-            size.width(13),
+              size.width(13),
               const WorkSpaceButton2Widget(
-                  icon: Icon(
-                    Icons.add,
-                    color: ColorsClass.primary,
-                  ),
+                  image: "assets/images/add.svg",
                   innerText: "New Work Space",
                   border: true,
                   newWorkSpace: true),
               size.width(8),
               const WorkSpaceButton2Widget(
-                  icon: Icon(
-                    CupertinoIcons.line_horizontal_3_decrease,
-                    color: ColorsClass.primary,
-                  ),
+                  image: "assets/images/Filter.svg",
                   innerText: "Filter",
                   border: false,
                   newWorkSpace: false),
               size.width(5),
               const WorkSpaceButton2Widget(
-                  icon: Icon(
-                    CupertinoIcons.arrow_up_arrow_down,
-                    color: ColorsClass.primary,
-                  ),
+                  image: "assets/images/Swap.svg",
                   innerText: "Sort",
                   border: false,
                   newWorkSpace: false),
             ],
           ),
         ),
-        size.height(10),
+        size.height(26),
         Expanded(
           child: ListView.separated(
             shrinkWrap: true,
