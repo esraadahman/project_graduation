@@ -9,6 +9,7 @@ class EndPoint {
   static String forgetPassword = "email/forget";
   static String otpCode = 'email/forget/check';
   static String createNewPassword = 'password/change';
+   static String CreateGroup = 'groups/store';
 
   // static String deletePost(int id) {
   //   return "blogs/$id";
@@ -64,4 +65,8 @@ class ApiKey {
   // static String title = "title";
   // static String description = "description";
   static String userId = "user_id";
+   static String C_W_title = "title";
+    static String C_W_description = "description";
+     static String C_W_stage = "stage";
+      static String C_W_deadline = "deadline";
 }

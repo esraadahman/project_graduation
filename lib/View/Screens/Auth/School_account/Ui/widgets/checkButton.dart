@@ -20,10 +20,10 @@ class _GradientCheckBoxWidgetState extends State<GradientCheckBoxWidget> {
       },
       child: Row(
         children: [
-          size.width(15),
+         size.width(width(context) * .04),
           Container(
-            width: 20,
-            height: 20,
+            width: width(context) / 30,
+            height: width(context) / 31,
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(4), // Rounded corners
@@ -36,22 +36,21 @@ class _GradientCheckBoxWidgetState extends State<GradientCheckBoxWidget> {
               ),
             ),
             child: _isChecked
-                ? const Icon(
+                ? Icon(
                     Icons.check,
                     color: Colors.white,
-                    size: 18,
+                    size: width(context) / 40,
                   )
                 : null, // Show checkmark if checked
           ),
           SizedBox(width: 8),
-          Text(
-            widget.text,
-            style: const TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
+          Text(widget.text,
+              style: styling.subtitle.copyWith(
+                fontSize: width(context) / 37,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              )),
+          size.width(20)
         ],
       ),
     );

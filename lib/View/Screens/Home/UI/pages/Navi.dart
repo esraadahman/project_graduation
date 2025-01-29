@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project_graduation/Core/Imports/common_imports.dart';
+import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/Basics.dart';
 
 class NaviBar extends StatefulWidget {
   const NaviBar({super.key});
@@ -33,7 +34,7 @@ class _NaviBarState extends State<NaviBar> {
       backgroundColor: ColorsClass.colorwhite,
       floatingActionButton: CustomFloatingActionButton(
         onPressed: () {
-          print("Floating Action Button Pressed");
+         context.navigateTo(BasicsScreen());
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -23,7 +23,7 @@ class AuthRepo {
       final response = await api.post(EndPoint.signIn,
           data: {ApiKey.email: email, ApiKey.password: pass}, isFromData: true);
       final user = LoginModel.fromJson(response);
-
+        await box.put(ApiKey.token , user.token.accessToken ); 
       return Right(user);
     } on ServerException catch (e) {
       return Left(e.errModel.message);

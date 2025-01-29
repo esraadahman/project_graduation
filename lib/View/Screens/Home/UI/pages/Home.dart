@@ -13,7 +13,7 @@ class HomeContent extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 140.h,
+          height: height(context) / 5,
           width: MediaQuery.sizeOf(context).width,
           decoration: BoxDecoration(
               color: ColorsClass.primary,
@@ -21,19 +21,26 @@ class HomeContent extends StatelessWidget {
                   bottomLeft: Radius.circular(30.r),
                   bottomRight: Radius.circular(30.r))),
           child: Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(
+              top: height(context) * .03,
+              //  left: width(context) * .06,
+            ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                size.width(25),
-                CircleAvatarAndAppBarText(userImage: "https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg?ga=GA1.1.1454705726.1706974768&semt=ais_hybrid",userName: "Mariam Mohie",),
-                size.width(25),
-               NoteficationIconWidget(),
+                CircleAvatarAndAppBarText(
+                  userImage:
+                      "https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg?ga=GA1.1.1454705726.1706974768&semt=ais_hybrid",
+                  userName: "Mariam Mohie",
+                ),
+                size.width(width(context) * .09),
+                NoteficationIconWidget(),
               ],
             ),
           ),
         ),
         size.height(32),
-       SearshBarWidget(),
+        SearshBarWidget(),
         Expanded(
           child: ListView(
             scrollDirection: Axis.vertical,
@@ -51,10 +58,7 @@ class HomeContent extends StatelessWidget {
                   ),
                 ],
               ),
-             
-              
               CardNextTasks()
-
             ],
           ),
         ),

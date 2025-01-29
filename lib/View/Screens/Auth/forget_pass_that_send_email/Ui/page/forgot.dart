@@ -48,8 +48,8 @@ class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
                 Align(
                   alignment: Alignment.center,
                   child: Container(
-                    width: 330.w,
-                    height: 400.h,
+                    width: width(context) / 1.2,
+                    height: height(context) / 2.3,
                     decoration: BoxDecoration(
                       color: ColorsClass.background,
                       borderRadius: BorderRadius.circular(10.r),
@@ -57,18 +57,18 @@ class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          size.height(10.h),
+                          size.height(height(context) / 100),
                           HeadingTextWidget(
                               text: LangClass.translate(
                                   context, "forgot_password_main_text")),
-                          size.height(15.h),
+                          size.height(height(context) / 150),
                           StartOurJourneyFromHere(
                               text:
                                   LangClass.translate(context, "instruction")),
-                          size.height(10.h),
+                          size.height(height(context) / 100),
                           Row(
                             children: [
-                              size.width(10.w),
+                              size.width(width(context) / 1.2 / 20),
                               AlreadyHaveAnAccountOrNot(
                                   content: LangClass.translate(
                                       context, "remember_password")),
@@ -79,7 +79,7 @@ class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
                                   text: LangClass.translate(context, "login"))
                             ],
                           ),
-                          size.height(20.h),
+                          size.height(height(context) * .025),
                           CustomInputField(
                             labelText: LangClass.translate(context, 'email'),
                             hintText:
@@ -93,10 +93,10 @@ class _ForgetPassThatSendEmailState extends State<ForgetPassThatSendEmail> {
                               cubit.forgetPassword();
                             },
                           ),
-                          size.height(5.h),
+                          size.height(height(context) * .01),
                           Row(
                             children: [
-                              size.width(10.w),
+                              size.width(width(context) / 1.2 / 20),
                               AlreadyHaveAnAccountOrNot(
                                 content: LangClass.translate(
                                     context, 'facing_problems'),

@@ -5,10 +5,10 @@ class AlreadyHaveAnAccountOrNot extends StatelessWidget {
   final String content;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      content,
-      style: const TextStyle(
-          fontSize: 15, fontWeight: FontWeight.bold, color: ColorsClass.text),
-    );
+    return Text(content,
+        style: styling.maintitle.copyWith(
+            fontSize: width(context) / 35,
+            fontWeight: FontWeight.bold,
+            color: ColorsClass.text));
   }
 }

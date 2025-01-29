@@ -42,45 +42,55 @@ class _OnBoardingBackgroundState extends State<OnBoardingScreen> {
               top: 30,
               child: Image(
                 image: const AssetImage("assets/images/Logo (1).png"),
-                width: 100.w,
-                height: 100.h,
+                width: width(context) / 3,
+                height: height(context) / 5,
               )),
           Positioned(
-              bottom: 270,
+              bottom: height(context) >= 1080
+                  ? height(context) / 2.5
+                  : height(context) / 3.1,
               left: 0,
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                child: Text(
-                  titles[index],
-                  style: TextStyle(
-                      fontSize: 25.sp,
-                      color: ColorsClass.colorwhite,
-                      fontWeight: FontWeight.bold),
-                ),
+                    //    EdgeInsets.symmetric(vertical: height(context)/20, horizontal:  width(context)/45),
+                    EdgeInsets.only(
+                        left: width(context) / 48, right: width(context) / 45),
+                child: Text(titles[index],
+                    style: styling.subtitle.copyWith(
+                        fontSize: width(context) / 15,
+                        color: ColorsClass.colorwhite,
+                        fontWeight: FontWeight.bold)),
               )),
           Positioned(
-            bottom: 170,
+            bottom: height(context) >= 1080
+                ? height(context) / 4
+                : height(context) / 4.5,
             left: 0,
             child: SizedBox(
               width: width(context),
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                child: Text(
-                  descriptions[index],
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontSize: 17.sp,
-                      color: const Color.fromARGB(255, 247, 248, 249),
-                      fontWeight: FontWeight.bold),
+                    //  EdgeInsets.symmetric(
+                    //     vertical: height(context) / 180,
+                    //     horizontal: width(context) / 27),
+                    EdgeInsets.only(
+                  left: width(context) / 25,
+                  right: width(context) / 45,
                 ),
+                child: Text(descriptions[index],
+                    textAlign: TextAlign.left,
+                    style: styling.subtitle.copyWith(
+                        fontSize: width(context) / 21,
+                        color: const Color.fromARGB(255, 247, 248, 249),
+                        fontWeight: FontWeight.normal)),
               ),
             ),
           ),
           Positioned(
-            bottom: 90,
-            left: 30,
+            bottom: width(context) < 800
+                ? height(context) / 8.5
+                : height(context) / 6.7,
+            left: width(context) / 25,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -93,25 +103,26 @@ class _OnBoardingBackgroundState extends State<OnBoardingScreen> {
             ),
           ),
           Positioned(
-              bottom: 10,
-              left: 3,
+              bottom: width(context) < 800
+                  ? height(context) / 43
+                  : height(context) / 37,
+              left: width(context) / 24,
               child: Padding(
-                  padding: const EdgeInsets.all(30),
+                  padding:
+                      const EdgeInsets.only(top: 30, bottom: 30, right: 30),
                   child: InkWell(
                       onTap: () {
                         context.navigateTo(const SignInOrUpOption());
                       },
                       child: SizedBox(
                           width: 60.w,
-                          child: Text(
-                            "Skip",
-                            style: TextStyle(
-                                fontSize: 17.5.sp,
-                                fontWeight: FontWeight.bold,
-                                color: ColorsClass.colorwhite),
-                          ))))),
+                          child: Text("Skip",
+                              style: styling.subtitle.copyWith(
+                                  fontSize: width(context) / 21,
+                                  fontWeight: FontWeight.normal,
+                                  color: ColorsClass.colorwhite)))))),
           Positioned(
-            bottom: 40,
+            bottom: height(context) / 20,
             right: 15,
             child: Padding(
               padding: const EdgeInsets.only(left: 200.0),
@@ -123,8 +134,8 @@ class _OnBoardingBackgroundState extends State<OnBoardingScreen> {
                   children: [
                     // Circular progress indicator
                     SizedBox(
-                      width: 70.w,
-                      height: 70.w,
+                      width: width(context) / 5,
+                      height: width(context) / 5,
                       child: CircularProgressIndicator(
                         value: (index + 1) / 3, // Update the progress
                         backgroundColor: Colors.grey[300],
@@ -135,15 +146,16 @@ class _OnBoardingBackgroundState extends State<OnBoardingScreen> {
                     ),
                     // Button in the center of the circular indicator
                     Container(
-                      width: 45.w,
-                      height: 45.h,
+                      width: width(context) / 7.3,
+                      height: width(context) / 7.3,
                       decoration: BoxDecoration(
                           gradient: ColorsClass.appGradient,
-                          borderRadius: BorderRadius.circular(60)),
+                          borderRadius: BorderRadius.circular(50)),
                       child: IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.arrow_forward_ios_outlined,
                             color: ColorsClass.colorwhite,
+                            size: width(context) / 15,
                           ),
                           color: Colors.blue,
                           onPressed: () {

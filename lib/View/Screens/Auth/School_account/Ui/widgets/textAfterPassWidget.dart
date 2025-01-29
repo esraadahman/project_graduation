@@ -5,13 +5,15 @@ class TextAfterPassWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.only(left: 17.0),
-      child: Text(
-       LangClass.translate(context, 'password_guideline'),
-        style: const TextStyle(
-            color: ColorsClass.password_text, fontWeight: FontWeight.bold),
-      ),
+    return Row(
+      children: [
+        size.width(width(context) / 1.2 / 20),
+        Text(LangClass.translate(context, 'password_guideline'),
+            style: styling.subtitle.copyWith(
+                color: ColorsClass.password_text,
+                fontWeight: FontWeight.bold,
+                fontSize: width(context) / 45)),
+      ],
     );
   }
 }

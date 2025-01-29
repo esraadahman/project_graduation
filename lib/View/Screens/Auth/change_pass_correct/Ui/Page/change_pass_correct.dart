@@ -11,25 +11,29 @@ class ChangePassCorrect extends StatelessWidget {
           const bacground_widget(),
           Center(
             child: Container(
-              height: size.heightMedia(context, .5),
-              width: size.widthMedia(context, .9),
+              height: height(context) / 2,
+              width: width(context) / 1.2,
               decoration: CustomDecoration.decorationForCenterContainer(),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  size.height(20),
                   imageWidget2(
                       image_src: "assets/images/Encapsulated Group.png"),
-                  size.height(25),
+                  size.height(height(context) / 20),
                   MainTiltleWidget(
-                      text: LangClass.translate(
-                          context, "passwordChangedSuccess"),
-                      fontSize: 14),
-                  size.height(15),
-                  subtextWidget(
-                      text: LangClass.translate(
-                          context, "passwordChangedSuccess"),
-                      fontsize: 12),
-                  size.height(50),
+                      text: "Your password has been changed successfully",
+                      fontSize: width(context) / 30),
+                  size.height(height(context) * .02),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      subtextWidget(
+                          text:
+                              "Start your journey now, What are you waiting for!",
+                          fontsize: width(context) / 40),
+                    ],
+                  ),
+                  size.height(height(context) / 30),
                   Confirmbutton(
                       text: LangClass.translate(context, "backToLogin"),
                       onTap: () {

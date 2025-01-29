@@ -1,7 +1,7 @@
 import 'package:project_graduation/Core/Imports/common_imports.dart';
+import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/submitConfirm.dart';
 import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Templates/textWidgets.dart';
 import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Templates/workspaceTemplate.dart';
-import 'package:project_graduation/View/Screens/workSpaces/Ui/widget/WorkSpacebuttonWidget.dart';
 
 class TemplatesScreen extends StatelessWidget {
   const TemplatesScreen({super.key});
@@ -9,7 +9,7 @@ class TemplatesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorsClass.background,
+        backgroundColor: ColorsClass.colorwhite,
         appBar: HeaderTitle(
           title: "Add New Work Space",
           onMorePressed: () {},
@@ -41,7 +41,20 @@ class TemplatesScreen extends StatelessWidget {
                 const SizedBox(height: 20),
               ],
             ),
-          ))
+          )),
+          Confirmbutton(
+              text: "Finish",
+              onTap: () {
+                context.navigateTo(SubmitconfirmScreen());
+              }),
+          size.height(20),
+          Confirmbuttonprimary(
+              text: "Back",
+              onTap: () {
+                //  context.navigateTo(StageScreen()
+                //   );
+              }),
+          size.height(40),
         ])));
   }
 }

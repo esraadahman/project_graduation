@@ -13,7 +13,7 @@
     "enter_email": "Enter your email",
     "password": "Password",
     "enter_password": "Enter your password",
-    "forgot_password": "Forgot your password?",
+    "forgot_password": " Forgot your password?",
     "remember_me": "Remember me",
     "log_in_button": "Log in",
     "or_with": "Or With",
@@ -35,7 +35,7 @@
 
     "_nameOfPage":" Enter Email For forget pass",
     "forgot_password_main_text": "You forgot your password.",
-    "instruction": "To get you back to your account, \nwrite your email to send you the link.",
+    "instruction": "To get you back to your account, write your\nemail to send you the link.",
     "remember_password": "Did you remember your password?",
     "log_in": "Log in",
     "next": "Next",
@@ -51,7 +51,7 @@
     "already_have_account": "Already have an account?",
     "full_name": "Full Name",
     "enter_full_name": "Enter your first and last name",
-    "password_guideline": "Use 8 characters or more with a mix of letters, numbers, and symbols.",
+    "password_guideline": "Use 8 characters or more with a mix of letters, numbers, and\nsymbols.",
     "register_as": "Register as Company or School",
 
 
@@ -61,7 +61,7 @@
   "legalInformation": "Legal Information",
   "phoneNumber": "Phone Number",
   "countryCode": "+1",
-  "enterPhone": "Please enter your phone number",
+  "enterPhone": "Please enter your phone number\n\n",
   "sameAsWhatsapp": "Same as WhatsApp number",
    "account_type" : "Account Type",
    "school":"School",

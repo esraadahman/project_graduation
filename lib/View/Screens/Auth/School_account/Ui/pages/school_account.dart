@@ -26,8 +26,8 @@ class SchoolAccountScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Container(
-                    width: 320,
-                    height: 510,
+                    width: width(context) / 1.2,
+                    height: height(context) / 1.3,
                     decoration: BoxDecoration(
                       color: ColorsClass.background,
                       borderRadius: BorderRadius.circular(10),
@@ -47,7 +47,7 @@ class SchoolAccountScreen extends StatelessWidget {
                           size.height(10.h),
                           Row(
                             children: [
-                              size.width(10),
+                              size.width(width(context) * .04),
                               AlreadyHaveAnAccountOrNot(
                                 content: LangClass.translate(
                                     context, 'already_have_account'),
@@ -59,7 +59,7 @@ class SchoolAccountScreen extends StatelessWidget {
                                   text: "Login")
                             ],
                           ),
-                          size.height(20),
+                          size.height(height(context) * .01),
                           CustomInputField(
                             labelText:
                                 LangClass.translate(context, "full_name"),
@@ -67,14 +67,14 @@ class SchoolAccountScreen extends StatelessWidget {
                                 LangClass.translate(context, "enter_full_name"),
                             controller: cubit.fullNameController,
                           ),
-                          size.height(20),
+                          size.height(height(context) * .03),
                           CustomInputField(
                             labelText: LangClass.translate(context, 'email'),
                             hintText:
                                 LangClass.translate(context, 'enter_email'),
                             controller: cubit.emailController,
                           ),
-                          size.height(20),
+                          size.height(height(context) * .03),
                           PhoneNumberField(
                             controller: cubit.phoneController,
                           ),
@@ -82,7 +82,7 @@ class SchoolAccountScreen extends StatelessWidget {
                             text:
                                 LangClass.translate(context, 'sameAsWhatsapp'),
                           ),
-                          size.height(20.h),
+                          size.height(height(context) * .03),
                           CustomInputField(
                             labelText: LangClass.translate(context, 'password'),
                             hintText:
@@ -91,8 +91,9 @@ class SchoolAccountScreen extends StatelessWidget {
                             obscureText: true,
                             controller: cubit.passController,
                           ),
+                          size.height(height(context) / 100),
                           TextAfterPassWidget(),
-                          size.height(20),
+                          size.height(height(context) * .03),
                           Confirmbutton(
                               text: LangClass.translate(context, 'signup'),
                               onTap: () {

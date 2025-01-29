@@ -28,27 +28,25 @@ class _CustomInputFieldState extends State<CustomInputField> {
   bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return Container(
-      width: size.width * 0.9,
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+      width: width(context) * 0.83,
+      padding: EdgeInsets.symmetric(
+        horizontal: width(context) / 1.2 / 20,
+      ),
       child: Column(
         children: [
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              widget.labelText,
-              style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: ColorsClass.sub_text),
-            ),
+            child: Text(widget.labelText,
+                style: styling.maintitle.copyWith(
+                    fontSize: width(context) / 30,
+                    fontWeight: FontWeight.bold,
+                    color: ColorsClass.sub_text)),
           ),
-          //   size.height(10),
+          size.height(5),
           SizedBox(
-            width: 400,
-            height: 50,
+            width: width(context) / 1.2,
+            height: height(context) / 1.4 / 15,
             child: TextFormField(
               onChanged: widget.onChanged,
               obscureText: (widget.obscureText && _obscureText),
@@ -61,7 +59,10 @@ class _CustomInputFieldState extends State<CustomInputField> {
                         color: ColorsClass.sub_text, width: 1)),
                 isDense: (widget.isDense != null) ? widget.isDense : false,
                 hintText: widget.hintText,
-                hintStyle: const TextStyle(color: ColorsClass.sub_text),
+                hintStyle: styling.subtitle.copyWith(
+                    color: ColorsClass.border_color,
+                    fontSize: width(context) / 32,
+                    fontWeight: FontWeight.normal),
                 suffixIcon: widget.suffixIcon
                     ? IconButton(
                         icon: Icon(
@@ -69,6 +70,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
                               ? Icons.remove_red_eye
                               : Icons.visibility_off_outlined,
                           color: Colors.black54,
+                          size: width(context) / 23,
                         ),
                         onPressed: () {
                           setState(() {

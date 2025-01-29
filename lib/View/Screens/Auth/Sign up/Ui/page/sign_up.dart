@@ -54,8 +54,8 @@ class SignUpScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Container(
-                    width: 320.w,
-                    height: 510.h,
+                    width: width(context) / 1.2,
+                    height: height(context) / 1.5,
                     decoration: BoxDecoration(
                       color: ColorsClass.background,
                       borderRadius: BorderRadius.circular(10.r),
@@ -63,20 +63,21 @@ class SignUpScreen extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          size.height(10.h),
+                          size.height(height(context) / 90),
                           HeadingTextWidget(
                               text:
                                   LangClass.translate(context, "new_account")),
-                          size.height(5.h),
+                          size.height(height(context) / 100),
                           StartOurJourneyFromHere(
                             text: LangClass.translate(context, "start_journey"),
                           ),
-                          size.height(10.h),
+                          size.height(height(context) * .02),
                           Row(
                             children: [
-                              size.width(10.w),
+                              size.width(width(context) / 1.2 / 20),
                               AlreadyHaveAnAccountOrNot(
-                                  content: LangClass.translate(context, "already_have_account")),
+                                  content: LangClass.translate(
+                                      context, "already_have_account")),
                               TextButtonWidgetLoginOrSignUp(
                                   onTap: () {
                                     context.navigateTo(SignInScreen());
@@ -84,20 +85,22 @@ class SignUpScreen extends StatelessWidget {
                                   text: LangClass.translate(context, "login"))
                             ],
                           ),
-                          size.height(20.h),
+                          size.height(height(context) / 50),
                           CustomInputField(
-                            labelText:LangClass.translate(context, "full_name"),
-                            hintText: LangClass.translate(context, "enter_full_name"),
+                            labelText:
+                                LangClass.translate(context, "full_name"),
+                            hintText:
+                                LangClass.translate(context, "enter_full_name"),
                             controller: cubit.fullNameController,
                           ),
-                          size.height(20.h),
+                          size.height(height(context) / 30),
                           CustomInputField(
                             labelText: LangClass.translate(context, 'email'),
                             hintText:
                                 LangClass.translate(context, 'enter_email'),
                             controller: cubit.emailController,
                           ),
-                          size.height(20.h),
+                          size.height(height(context) / 30),
                           CustomInputField(
                             labelText: LangClass.translate(context, 'password'),
                             hintText:
@@ -106,34 +109,21 @@ class SignUpScreen extends StatelessWidget {
                             obscureText: true,
                             controller: cubit.passController,
                           ),
+                          size.height(height(context) / 200),
                           TextAfterPassWidget(),
-                          size.height(20.h),
+                          size.height(height(context) / 30),
                           Confirmbutton(
-                              text:   LangClass.translate(context, 'signup'),
+                              text: "Next",
                               onTap: () {
                                 cubit.signUp();
                               }),
-                          size.height(5.h),
-                          Align(
-                              alignment: Alignment.bottomLeft,
-                              child: TextButtonWidgetLoginOrSignUp(
-                                  onTap: () {
-                                    context.navigateTo(SchoolOrCompany());
-                                  },
-                                  text:  LangClass.translate(context, 'register_as'),)),
-                          size.height(15.h),
-                          ORWithWidget(
-                            ontap1: () {
-                              cubit.SignUpWithGitHub();
+                          size.height(height(context) / 100),
+                          TextButtonWidgetLoginOrSignUp(
+                            onTap: () {
+                              context.navigateTo(SchoolOrCompany());
                             },
-                            ontap2: () {
-                              cubit.signUpWithGoogle();
-                            },
-                            ontap3: () {
-                              cubit.SignUpWithFaceBook();
-                            },
+                            text: LangClass.translate(context, 'register_as'),
                           ),
-                          size.height(30.h)
                         ],
                       ),
                     ),

@@ -26,7 +26,7 @@ class Confirmbuttonprimary extends StatelessWidget {
             text,
             style: const TextStyle(
               color: ColorsClass.dark_gradient,
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),

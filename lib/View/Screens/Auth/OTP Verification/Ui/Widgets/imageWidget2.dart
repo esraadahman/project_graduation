@@ -8,7 +8,13 @@ class imageWidget2 extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(image_src),
+        Image(
+            fit: BoxFit.cover,
+            width: width(context) / 3,
+            height: height(context) / 5,
+            image: AssetImage(
+              image_src,
+            ))
       ],
     );
   }

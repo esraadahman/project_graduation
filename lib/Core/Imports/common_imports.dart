@@ -81,7 +81,7 @@ export 'package:flutter_svg/svg.dart';
 
 export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Basics/NameInputFiled&Category.dart';
 export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/ProgressBarWidget.dart';
-export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Basics/objective&button.dart';
+
 export 'package:project_graduation/View/Screens/workSpaces/Ui/widget/HeaderTitle.dart';
 
 

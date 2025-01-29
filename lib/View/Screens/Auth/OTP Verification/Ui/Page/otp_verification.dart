@@ -63,9 +63,15 @@ class _OTP_VerificationState extends State<OTP_Verification> {
                             fontSize: 20,
                           ),
                           size.height(20),
-                          subtextWidget(
-                            fontsize: 14,
-                            text: LangClass.translate(context, "otp_message"),
+                          Row(
+                            children: [
+                              size.width(width(context) / 1.2 / 20),
+                              subtextWidget(
+                                fontsize: 14,
+                                text:
+                                    LangClass.translate(context, "otp_message"),
+                              ),
+                            ],
                           ),
                           size.height(10),
                           const emailWidget(),
@@ -118,7 +124,7 @@ class _OTP_VerificationState extends State<OTP_Verification> {
 
                               cubit.CheckOtpCode();
                             },
-                            text:  LangClass.translate(context, "confirm"),
+                            text: LangClass.translate(context, "confirm"),
                           ),
                         ],
                       ),

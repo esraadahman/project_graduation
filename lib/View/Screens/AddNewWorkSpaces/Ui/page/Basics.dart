@@ -7,7 +7,7 @@ class BasicsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorsClass.background,
+        backgroundColor: ColorsClass.colorwhite,
         appBar: HeaderTitle(
           title: "Add New Work Space",
           onMorePressed: () {},
@@ -28,14 +28,6 @@ class BasicsScreen extends StatelessWidget {
                 hintText: "Enter your work space name",
                 items: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
               ),
-              size.height(40),
-              const Objective_Button(),
-              Confirmbutton(
-                  text: "Next",
-                  onTap: () {
-                    context.navigateTo(StageScreen());
-                  }),
-              size.height(30),
             ],
           ),
         ));

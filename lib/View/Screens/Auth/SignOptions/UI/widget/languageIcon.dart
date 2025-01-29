@@ -31,17 +31,19 @@ class LanguageIcon extends StatelessWidget {
             ),
           ],
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const Icon(
+              Icon(
                 Icons.language,
                 color: ColorsClass.primary,
-                size: 30,
+                size: width(context) / 15,
               ),
               const SizedBox(width: 5),
               Text(
-                lang,
-                style: styling.maintitle
-                    .copyWith(fontSize: 17.sp, color: ColorsClass.primary),
+             //   lang == null? state.languageCode : lang,
+            lang,
+                style: styling.maintitle.copyWith(
+                    fontSize: width(context) / 17, color: ColorsClass.primary),
               )
             ],
           ),

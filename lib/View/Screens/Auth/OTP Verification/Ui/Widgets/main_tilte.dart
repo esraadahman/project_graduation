@@ -11,7 +11,7 @@ class MainTiltleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        size.width(15),
+        size.width(width(context) / 1.2 / 20),
         Text(
           text,
           style: styling.maintitle.copyWith(

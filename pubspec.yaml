@@ -52,10 +52,17 @@ dependencies:
   flutter_svg: ^2.0.14
   file_picker: ^5.0.1
   dotted_border: ^2.0.0
+  top_snackbar_flutter: ^3.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/Logo (1) (1).png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -103,6 +110,9 @@ flutter:
     - family: DG_Baysan_Semibold
       fonts:
         - asset: assets/Fonts/DG Baysan Semibold.ttf
+    - family: Lexend
+      fonts:
+        - asset: assets/Fonts/Lexend-VariableFont_wght.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

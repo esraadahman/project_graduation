@@ -19,87 +19,102 @@ class _SchoolOrCompanyState extends State<SchoolOrCompany> {
           const bacground_widget(),
           Center(
             child: Container(
-              height: size.heightMedia(context, .62),
-              width: size.widthMedia(context, .9),
+              width: width(context) / 1.2,
+              height: height(context) / 1.9,
               decoration: CustomDecoration.decorationForCenterContainer(),
-              child: Column(
-                children: [
-                  size.height(25),
-                  MainTiltleWidget(
-                    text: LangClass.translate(context, "new_account"),
-                    fontSize: 23,
-                  ),
-                  size.height(5),
-                  subtextWidget(
-                      text: LangClass.translate(context, "start_journey"),
-                      fontsize: 15),
-                  size.height(10),
-                  text_textbutton(
-                    text: LangClass.translate(context, "already_have_account"),
-                    buttontext: LangClass.translate(context, "login"),
-                    ontap: () {
-                      context.navigateTo(SignInScreen());
-                    },
-                  ),
-                  size.height(20),
-                  MainTiltleWidget(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    size.height(height(context) / 100),
+                    MainTiltleWidget(
+                      text: LangClass.translate(context, "new_account"),
+                      fontSize: width(context) / 20,
+                    ),
+                    size.height(height(context) / 1.9 / 200),
+                    Row(
+                      children: [
+                        size.width(width(context) / 1.2 / 20),
+                        subtextWidget(
+                            text: LangClass.translate(context, "start_journey"),
+                            fontsize: width(context) / 40),
+                      ],
+                    ),
+                    size.height(height(context) * .009),
+                    Row(
+                      children: [
+                        size.width(width(context) / 1.2 / 20),
+                        AlreadyHaveAnAccountOrNot(
+                            content: LangClass.translate(
+                                context, "already_have_account")),
+                        TextButtonWidgetLoginOrSignUp(
+                            onTap: () {
+                              context.navigateTo(SignInScreen());
+                            },
+                            text: LangClass.translate(context, "login"))
+                      ],
+                    ),
+                    size.height(height(context) * .01),
+                    MainTiltleWidget(
                       text: LangClass.translate(context, "account_type"),
-                      fontSize: 15),
-                  size.height(15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              checked_company = true;
-                            });
-                          },
-                          child: Company_or_school_icons(
-                            checked: checked_company,
-                            icon: Icons.school,
-                            text: LangClass.translate(context, "school"),
-                          )),
-                      GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              checked_company = false;
-                            });
-                          },
-                          child: Company_or_school_icons(
-                            checked: !checked_company,
-                            icon: CupertinoIcons.building_2_fill,
-                            text: LangClass.translate(context, "company"),
-                          )),
-                    ],
-                  ),
-                  size.height(50),
-                  Confirmbutton(
-                      text:   LangClass.translate(context, "next"),
-                      onTap: () {
-                        checked_company
-                            ? context.navigateTo(SchoolAccountScreen())
-                            //
+                      fontSize: width(context) / 35,
+                    ),
+                    size.height(height(context) * .02),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                checked_company = true;
+                              });
+                            },
+                            child: Company_or_school_icons(
+                              checked: checked_company,
+                              icon: Icons.school,
+                              text: LangClass.translate(context, "school"),
+                            )),
+                        GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                checked_company = false;
+                              });
+                            },
+                            child: Company_or_school_icons(
+                              checked: !checked_company,
+                              icon: CupertinoIcons.building_2_fill,
+                              text: LangClass.translate(context, "company"),
+                            )),
+                      ],
+                    ),
+                    size.height(height(context) * .04),
+                    Confirmbutton(
+                        text: LangClass.translate(context, "next"),
+                        onTap: () {
+                          checked_company
+                              ? context.navigateTo(SchoolAccountScreen())
+                              //
 
-                            : null;
-                      }),
-                  size.height(10),
-                  Row(
-                    children: [
-                      size.width(15),
-                      TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            LangClass.translate(context, "register_as_user"),
-                            style: styling.subtitle.copyWith(
-                                color: ColorsClass.primary,
-                                decoration: TextDecoration.underline,
-                                decorationColor: ColorsClass.primary,
-                                fontSize: 12),
-                          )),
-                    ],
-                  )
-                ],
+                              : null;
+                        }),
+                    size.height(10),
+                    Row(
+                      children: [
+                        size.width(width(context) * .013),
+                        TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              LangClass.translate(context, "register_as_user"),
+                              style: styling.subtitle.copyWith(
+                                  color: ColorsClass.primary,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: ColorsClass.primary,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: width(context) * .03),
+                            )),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),

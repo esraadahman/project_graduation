@@ -12,7 +12,7 @@ class CustomIndicator extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         color: active ? ColorsClass.primary : ColorsClass.lightGrey,
       ),
-      width: active ? 30 : 10,
+      width: active ? width(context)/15 : width(context)/30,
       height: 10,
     );
   }
