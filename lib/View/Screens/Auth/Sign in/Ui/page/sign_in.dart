@@ -15,9 +15,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return BlocProvider(
       create: (context) => SignInCubit(AuthRepo(api: DioConsumer(dio: Dio()))),
       child: BlocConsumer<SignInCubit, SignInState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           final cubit = BlocProvider.of<SignInCubit>(context);
           return Scaffold(
@@ -103,7 +101,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               text:
                                   LangClass.translate(context, "log_in_button"),
                               onTap: () {
-                                   cubit.signin();
+                                cubit.signin();
                                 context.navigateTo(NaviBar());
                               }),
                           size.height(5.h),

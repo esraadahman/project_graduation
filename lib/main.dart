@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:project_graduation/Core/Imports/common_imports.dart';
@@ -11,8 +12,12 @@ import 'package:project_graduation/View/Screens/Auth/SignOptions/UI/page/SignInO
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:project_graduation/View/Screens/Home/UI/pages/Navi.dart';
 import 'package:project_graduation/View/Screens/onBoarding/UI/page/onboarding.dart';
+import 'package:project_graduation/firebase_options.dart';
 
 void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   await Hive.initFlutter();
   // open box
   await Hive.openBox(HiveConstants.Boxname);
