@@ -1,8 +1,4 @@
 import 'package:project_graduation/Core/Imports/common_imports.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/InviteTeamWidget.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/copyLink.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/emailCallWidget.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/textWidget.dart';
 
 class SubmitconfirmScreen extends StatelessWidget {
   const SubmitconfirmScreen({super.key});
@@ -26,9 +22,7 @@ class SubmitconfirmScreen extends StatelessWidget {
                 hintText: "Enter your team members' email",
               ),
               CopyLinkButton(
-                onCopy: () {
-                  print("Link copied!");
-                },
+                text: "esraa",
               ),
               size.height(50),
               Confirmbutton(

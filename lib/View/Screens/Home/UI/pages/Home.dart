@@ -1,9 +1,5 @@
 import 'package:project_graduation/Core/Imports/common_imports.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:project_graduation/View/Screens/Home/UI/widget/CardNextTasks.dart';
-import 'package:project_graduation/View/Screens/Home/UI/widget/CircleAvatar&AppBarText.dart';
-import 'package:project_graduation/View/Screens/Home/UI/widget/NontficationIcon.dart';
-import 'package:project_graduation/View/Screens/Home/UI/widget/searsh_icon.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});

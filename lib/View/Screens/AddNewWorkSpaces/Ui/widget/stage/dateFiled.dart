@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:project_graduation/Core/Theming/colors/colors.dart';
-import 'package:project_graduation/Core/Theming/fonts/fonts.dart';
-import 'package:project_graduation/Core/Theming/size/size.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
+
 
 class DeadlineInput extends StatefulWidget {
   final TextEditingController controller;

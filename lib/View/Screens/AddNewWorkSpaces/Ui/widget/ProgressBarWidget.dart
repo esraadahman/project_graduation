@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class ProgressBarWidget extends StatelessWidget {

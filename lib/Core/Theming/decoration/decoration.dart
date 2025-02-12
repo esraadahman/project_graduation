@@ -26,12 +26,20 @@ class CustomDecoration {
     );
   }
 
-  static BoxDecoration grayDecorationForSmall() {
+  static BoxDecoration grayDecorationForSmall(bool smallOrnot) {
     return BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-      border: Border.all(color: ColorsClass.border_color),
+      border: smallOrnot ? Border.all(color: ColorsClass.border_color) : null,
+    );
+  }
+
+  static BoxDecoration grayDecoration3() {
+    return BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(10),
+      border: Border.all(color: ColorsClass.lightGrey),
     );
   }
 }

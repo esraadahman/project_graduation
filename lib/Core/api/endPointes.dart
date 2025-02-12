@@ -9,12 +9,16 @@ class EndPoint {
   static String forgetPassword = "email/forget";
   static String otpCode = 'email/forget/check';
   static String createNewPassword = 'password/change';
-   static String CreateGroup = 'groups/store';
+  static String CreateGroup = 'groups/store';
+  static String AllGroups = 'groups';
 
-  // static String deletePost(int id) {
-  //   return "blogs/$id";
-  // }
+  static String getGroupByID(int id) {
+    return "groups/$id";
+  }
 
+  static String deleteGroup(int id) {
+    return "groups/destroy?groupId=$id";
+  }
 
   // static String updateUserInfo(int id) {
   //   return "user/$id";//
@@ -65,8 +69,8 @@ class ApiKey {
   // static String title = "title";
   // static String description = "description";
   static String userId = "user_id";
-   static String C_W_title = "title";
-    static String C_W_description = "description";
-     static String C_W_stage = "stage";
-      static String C_W_deadline = "deadline";
+  static String C_W_title = "title";
+  static String C_W_description = "description";
+  static String C_W_stage = "stage";
+  static String C_W_deadline = "deadline";
 }

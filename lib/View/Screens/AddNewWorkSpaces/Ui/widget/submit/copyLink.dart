@@ -1,9 +1,12 @@
-import 'package:project_graduation/Core/Imports/common_imports.dart';
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CopyLinkButton extends StatefulWidget {
-  final VoidCallback onCopy;
+  final String text;
 
-  const CopyLinkButton({Key? key, required this.onCopy}) : super(key: key);
+  const CopyLinkButton({Key? key, required this.text});
 
   @override
   State<CopyLinkButton> createState() => _CopyLinkButtonState();
@@ -13,14 +16,13 @@ class _CopyLinkButtonState extends State<CopyLinkButton> {
   bool _isCopied = false;
 
   void _copyLink() {
-    
-    widget.onCopy(); 
-
+    // this line is what copy text to  Clipboard
+    Clipboard.setData(ClipboardData(text: widget.text));
+    //////////////////
     setState(() {
       _isCopied = true;
     });
 
-    
     Timer(const Duration(seconds: 3), () {
       if (mounted) {
         setState(() {
@@ -35,22 +37,20 @@ class _CopyLinkButtonState extends State<CopyLinkButton> {
     return GestureDetector(
       onTap: _copyLink,
       child: Container(
-        width: width(context) * 0.9,
-        height: height(context) * .09,
+        width: 300,
+        height: 50,
         alignment: Alignment.center,
-        margin: EdgeInsets.only(
-            left: width(context) * .05, right: width(context) * .05),
+        margin: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
               _isCopied ? Icons.check : Icons.copy,
-              color: _isCopied ? Colors.green : ColorsClass.primary,
+              color: _isCopied ? Colors.green : Colors.blue,
             ),
-            Text(_isCopied ? ' Copied' : ' Copy Invitation Link',
-                style: styling.subtitle.copyWith(
-                  color: _isCopied ? Colors.green : ColorsClass.primary,
-                )),
+            Text(
+              _isCopied ? ' Copied' : ' Copy Invitation Link',
+            ),
           ],
         ),
       ),

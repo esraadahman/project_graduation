@@ -1,5 +1,5 @@
 import 'package:project_graduation/Core/Imports/common_imports.dart';
-import 'package:project_graduation/View/Screens/onBoarding/UI/widget/CustomIndicator.dart';
+
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

@@ -28,6 +28,7 @@ class containerOFImageOFWorkSpace extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20),
             child: imageWorkSpace(
               image: image,
+              title: title,
             ),
           ),
           size.height(15),

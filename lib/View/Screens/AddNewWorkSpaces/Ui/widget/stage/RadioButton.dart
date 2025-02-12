@@ -9,20 +9,21 @@ class Radiobutton extends StatefulWidget {
 }
 
 class _RadiobuttonState extends State<Radiobutton> {
-  String _selectedOption = 'Idea Planning';
+  String _selectedOption = 'planning';
 
   final List<String> _stages = [
-    'Idea Planning',
-    'Research Phase',
-    'Development',
-    'Review',
-    'Finalization',
+    'planning',
+    'research',
+    'development',
+    'review',
+    'finalization',
   ];
 
   Widget _buildRadioTile(String title) {
     return RadioListTile<String>(
       title: Text(
-        title,
+        title[0].toUpperCase() +
+            title.substring(1), 
         style: styling.maintitle
             .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
       ),

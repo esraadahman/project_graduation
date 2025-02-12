@@ -1,4 +1,3 @@
-
 import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class NavigateHomePage extends StatelessWidget {

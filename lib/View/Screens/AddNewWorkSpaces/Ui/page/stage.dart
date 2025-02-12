@@ -1,13 +1,7 @@
-import 'dart:io';
-
-import 'package:file_picker/file_picker.dart';
-import 'package:project_graduation/Core/Imports/common_imports.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/Basics.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/submitConfirm.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/cubit/cubit/add_workspace_cubit.dart';
-import 'package:project_graduation/repo/UserRepo.dart';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import 'package:project_graduation/Core/Imports/common_imports.dart';
+
+
 
 class StageScreen extends StatelessWidget {
   StageScreen({super.key});

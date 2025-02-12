@@ -17,6 +17,7 @@ class ColorsClass {
   static const Color light_gradient = Color(0xFF007BFF);
   static const Color checkBoxText = Color(0xB2000000);
   static const Color lightGrey = Color(0xFFDDDDDD);
+  static const Color lightBlue = Color.fromARGB(255, 192, 220, 251);
 
   //! colors for the on boarding screen
 
@@ -36,4 +37,26 @@ class ColorsClass {
   static const Color complateColorText = Color(0xFF374151);
   static const Color buttonColorPrimary = Color(0xFFF5FAFF);
 
+// static const  Color dark_gradient2 = Color(0xFF374151);
+// static const Color light_gradient2 = Color(0xFF7C9EB2);
+
+// static const LinearGradient workSpaceBackground = LinearGradient(
+//   begin: Alignment.topLeft,
+//   end: Alignment.bottomRight,
+//   colors: [
+//     dark_gradient2,
+//     light_gradient2,
+//   ],
+// );
+
+  static const LinearGradient workSpaceBackground = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color.fromARGB(255, 66, 146, 232),
+      Color.fromARGB(255, 115, 171, 224),
+      Color.fromARGB(255, 177, 217, 248),
+      Color.fromARGB(255, 137, 185, 213),
+    ],
+  );
 }

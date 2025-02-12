@@ -5,6 +5,9 @@ import 'package:project_graduation/Core/api/endPointes.dart';
 import 'package:project_graduation/Core/errors/exceptions.dart';
 import 'package:project_graduation/Core/hive_constants/hive_constants.dart';
 import 'package:project_graduation/ModelView/AddNewWorkSpace/AddNewWorkSpaceModel.dart';
+import 'package:project_graduation/ModelView/AllGroups/AllGroups.dart';
+import 'package:project_graduation/ModelView/Group/SingleGroupModel.dart';
+import 'package:project_graduation/ModelView/Sign_UP/SignUpModel.dart';
 
 class Userrepo {
   final ApiConsumer api;
@@ -31,7 +34,6 @@ class Userrepo {
         isFromData: true,
       );
 
-
       final user = GroupResponse.fromJson(response);
       print(user.status.toString() +
           "  " +
@@ -43,6 +45,41 @@ class Userrepo {
           "  " +
           user.group.deadline.toString());
       return Right(user);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, AllGroups>> getAllGroups() async {
+    try {
+      final response = await api.get(
+        EndPoint.AllGroups,
+      );
+
+      final user = AllGroups.fromJson(response);
+
+      return Right(user);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, SingleGroupModel>> getGroupByID(int id) async {
+    try {
+      final response = await api.get(EndPoint.getGroupByID(id));
+      final singleGroup = SingleGroupModel.fromJson(response);
+      return Right(singleGroup);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  
+  Future<Either<String, GlobalResponse>> deleteGroup(int id) async {
+    try {
+      final response = await api.delete(EndPoint.deleteGroup(id));
+      final singleGroup = GlobalResponse.fromJson(response);
+      return Right(singleGroup);
     } on ServerException catch (e) {
       return Left(e.errModel.message);
     }

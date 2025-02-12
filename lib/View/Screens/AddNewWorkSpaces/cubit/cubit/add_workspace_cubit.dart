@@ -1,11 +1,5 @@
 import 'dart:io';
-
-import 'package:bloc/bloc.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:meta/meta.dart';
 import 'package:project_graduation/Core/Imports/common_imports.dart';
-import 'package:project_graduation/repo/UserRepo.dart';
-
 part 'add_workspace_state.dart';
 
 class AddWorkspaceCubit extends Cubit<AddWorkspaceState> {
@@ -20,7 +14,7 @@ class AddWorkspaceCubit extends Cubit<AddWorkspaceState> {
 
   DateTime? selectedDate;
 
- static const String workspaceBox = 'workspaceBox';
+  static const String workspaceBox = 'workspaceBox';
   static const String workspaceNameKey = 'workspaceName';
   static const String workspaceDescriptionKey = 'workspaceDescription';
   // String name="" ;
@@ -38,7 +32,6 @@ class AddWorkspaceCubit extends Cubit<AddWorkspaceState> {
     }
   }
 
-
   Future<Map<String, String>> getWorkspaceData() async {
     final box = Hive.box(workspaceBox);
     final name = box.get(workspaceNameKey, defaultValue: "");
@@ -46,13 +39,13 @@ class AddWorkspaceCubit extends Cubit<AddWorkspaceState> {
     return {"name": name, "description": description};
   }
 
- 
   Future<void> createNewWorkspace() async {
     final workspaceData = await getWorkspaceData();
     final name = workspaceData["name"] ?? "";
-   final des = workspaceData["description"] ?? "";
- 
- print(" name :${name} , description :${des} , stage: ${workSpaceStage.text} , deadline :${workSpaceDeadline.text}");
+    final des = workspaceData["description"] ?? "";
+
+    print(
+        " name :${name} , description :${des} , stage: ${workSpaceStage.text} , deadline :${workSpaceDeadline.text}");
     if (name.isEmpty || des.isEmpty) {
       emit(AddWorkspaceFailed());
       return;
@@ -77,8 +70,6 @@ class AddWorkspaceCubit extends Cubit<AddWorkspaceState> {
     );
   }
 
-
- 
   // Refactored _selectDate function
   Future<void> selectDate(BuildContext context) async {
     DateTime initialDate = selectedDate ?? DateTime.now();
@@ -99,23 +90,23 @@ class AddWorkspaceCubit extends Cubit<AddWorkspaceState> {
   }
 
   Future<void> pickFiles() async {
-      FilePickerResult? result = await FilePicker.platform.pickFiles(
-        allowMultiple: true,
-        type: FileType
-            .custom, // Use custom type for filtering specific file extensions
-        allowedExtensions: ['jpg', 'png', 'pdf'], // Specify allowed file types
-      );
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      allowMultiple: true,
+      type: FileType
+          .custom, // Use custom type for filtering specific file extensions
+      allowedExtensions: ['jpg', 'png', 'pdf'], // Specify allowed file types
+    );
 
-      if (result != null) {
-        // Handle multiple picked files
-        List<File> files = result.paths.map((path) => File(path!)).toList();
-        print('Picked files:');
-        for (var file in files) {
-          print(file.path); // Handle each file
-        }
-      } else {
-        // User canceled the picker
-        print('No files picked');
+    if (result != null) {
+      // Handle multiple picked files
+      List<File> files = result.paths.map((path) => File(path!)).toList();
+      print('Picked files:');
+      for (var file in files) {
+        print(file.path); // Handle each file
       }
+    } else {
+      // User canceled the picker
+      print('No files picked');
     }
+  }
 }

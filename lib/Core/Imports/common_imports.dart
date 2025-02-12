@@ -92,3 +92,60 @@ export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/stage
 export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/stage/media.dart';
 
 export 'package:dotted_border/dotted_border.dart';
+
+export 'package:project_graduation/ModelView/AllGroups/AllGroups.dart';
+export 'package:project_graduation/repo/UserRepo.dart';
+
+export 'package:project_graduation/Core/api/endPointes.dart';
+export 'package:project_graduation/Core/functions/dateFormate.dart';
+
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/Basics.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/page/workspace.dart';
+
+export 'package:project_graduation/View/Screens/workSpaces/Ui/widget/WorkSpaceButton2_widget.dart';
+export 'package:project_graduation/View/Screens/workSpaces/Ui/widget/WorkSpacebuttonWidget.dart';
+export 'package:project_graduation/View/Screens/workSpaces/cubit/cubit/work_spaces_cubit.dart';
+
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/DescriptionWidget.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/Documentation.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/InformationWorkspace.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/SortButton.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/TaskCategoryWidget.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/TaskFilterWidget.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/TaskList.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/TextBottom.dart';
+export 'package:project_graduation/View/Screens/WorkSpace/cubit/cubit/work_space_cubit.dart';
+
+
+export 'package:text_gradiate/text_gradiate.dart';
+
+export 'package:project_graduation/View/Screens/WorkSpace/Ui/widgets/TaskCard.dart';
+export 'package:project_graduation/View/Screens/onBoarding/UI/widget/CustomIndicator.dart';
+
+export 'package:project_graduation/View/Screens/Home/UI/widget/CardNextTasks.dart';
+export 'package:project_graduation/View/Screens/Home/UI/widget/CircleAvatar&AppBarText.dart';
+export 'package:project_graduation/View/Screens/Home/UI/widget/NontficationIcon.dart';
+export 'package:project_graduation/View/Screens/Home/UI/widget/searsh_icon.dart';
+
+
+export 'package:fl_chart/fl_chart.dart';
+export 'package:file_picker/file_picker.dart';
+
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/submitConfirm.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/cubit/cubit/add_workspace_cubit.dart';
+
+export 'package:top_snackbar_flutter/custom_snack_bar.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/InviteTeamWidget.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/copyLink.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/emailCallWidget.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/textWidget.dart';
+
+
+
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Templates/textWidgets.dart';
+
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/stage.dart';
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Templates/workspaceTemplate.dart';
+
+
+export 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/submit/orWithWidget.dart';

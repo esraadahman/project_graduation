@@ -1,7 +1,5 @@
 import 'package:project_graduation/Core/Imports/common_imports.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/submitConfirm.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Templates/textWidgets.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/widget/Templates/workspaceTemplate.dart';
+
 
 class TemplatesScreen extends StatelessWidget {
   const TemplatesScreen({super.key});

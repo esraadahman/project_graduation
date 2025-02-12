@@ -1,8 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project_graduation/Core/Imports/common_imports.dart';
-import 'package:project_graduation/View/Screens/AddNewWorkSpaces/Ui/page/Basics.dart';
+
 
 class NaviBar extends StatefulWidget {
   const NaviBar({super.key});
@@ -17,7 +16,9 @@ class _NaviBarState extends State<NaviBar> {
   final List<Widget> _pages = [
     const NavigateHomePage(),
     const ChatPage(),
-    Workspaces(),
+    Center(
+      child: Text("hhh"),
+    ),
     const ProfilePage(),
   ];
 
@@ -34,7 +35,7 @@ class _NaviBarState extends State<NaviBar> {
       backgroundColor: ColorsClass.colorwhite,
       floatingActionButton: CustomFloatingActionButton(
         onPressed: () {
-         context.navigateTo(BasicsScreen());
+          context.navigateTo(Workspaces());
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

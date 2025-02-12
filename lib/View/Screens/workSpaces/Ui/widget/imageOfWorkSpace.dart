@@ -2,7 +2,8 @@ import 'package:project_graduation/Core/Imports/common_imports.dart';
 
 class imageWorkSpace extends StatelessWidget {
   String image;
-  imageWorkSpace({super.key, required this.image});
+  String title;
+  imageWorkSpace({super.key, required this.title, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class imageWorkSpace extends StatelessWidget {
                     color: ColorsClass.password_text,
                     child: Center(
                       child: Text(
-                        "WS",
+                        title.substring(0, 2).toUpperCase(),
                         style: styling.maintitle,
                       ),
                     ),
