@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "987633220641",
+    "firebase_url": "https://bridgeit-offcial-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bridgeit-offcial",
+    "storage_bucket": "bridgeit-offcial.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987633220641:android:69dc69c86cabf07fb57760",
+        "android_client_info": {
+          "package_name": "com.example.gradution_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987633220641-q1ikn5n0s2lmfan76lmkmac408bccs9k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gradution_project",
+            "certificate_hash": "e42b872df7c37835c52f611f40f666217950fbf0"
+          }
+        },
+        {
+          "client_id": "987633220641-7okbp0e43c7thsao74ld5dgoivsu1agg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiL9W_qOomvOfEoM3bq2iownVaUrhzcuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987633220641-7okbp0e43c7thsao74ld5dgoivsu1agg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "987633220641-4mvi35audl2i3utcnm6pa9h8ugmumt4n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.projectGraduation"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

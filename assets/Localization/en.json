@@ -1,0 +1,98 @@
+{
+    "_nameOfPage":" Login or sign up",
+    "login": "Log in",
+    "signup":"Sign Up",
+    "asguest":"Continue as Guest",
+
+
+
+    "_nameOfPage":" Login ",
+    "no_account": "Don't have an account?",
+    "create_account": "Create a new account",
+    "email": "Email",
+    "enter_email": "Enter your email",
+    "password": "Password",
+    "enter_password": "Enter your password",
+    "forgot_password": " Forgot your password?",
+    "remember_me": "Remember me",
+    "log_in_button": "Log in",
+    "or_with": "Or With",
+    "copyright": "© 2024 Bridge It. All rights reserved",
+    "required":"required!",
+
+
+    "_nameOfPage":" OTPcode ",
+    "otp_verification": "OTP Verification",
+    "otp_message": "We will send you a one-time password for this email",
+    "email_placeholder": "email@example.email",
+    "resend_message": "Did not receive the message?",
+    "resend": "Resend",
+    "timer_placeholder": "MM:SS",
+    "confirm": "Confirm",
+     "wrongOtp": "Wrong OTP code entered, please try again",
+
+
+
+    "_nameOfPage":" Enter Email For forget pass",
+    "forgot_password_main_text": "You forgot your password.",
+    "instruction": "To get you back to your account, write your\nemail to send you the link.",
+    "remember_password": "Did you remember your password?",
+    "log_in": "Log in",
+    "next": "Next",
+    "facing_problems": "Are you facing any problems?",
+    "contact_support": "Contact support.",
+      "email_sent_successfully": "Email sent successfully.",
+    "failed": "Failed.",
+
+
+    "_nameOfPage":" Sign Up",
+    "new_account": "New account",
+    "start_journey": "Start your journey from here.",
+    "already_have_account": "Already have an account?",
+    "full_name": "Full Name",
+    "enter_full_name": "Enter your first and last name",
+    "password_guideline": "Use 8 characters or more with a mix of letters, numbers, and\nsymbols.",
+    "register_as": "Register as Company or School",
+
+
+
+  "_nameOfPage": "School or company",
+  "basicInformation": "Basic Information",
+  "legalInformation": "Legal Information",
+  "phoneNumber": "Phone Number",
+  "countryCode": "+1",
+  "enterPhone": "Please enter your phone number\n\n",
+  "sameAsWhatsapp": "Same as WhatsApp number",
+   "account_type" : "Account Type",
+   "school":"School",
+   "company":"Company",
+   "register_as_user": "Register as Regular User",
+   "school_account": "School account",
+
+
+
+    "alert": "Alert!",
+  "checkEmail": "Check your email again",
+  "ok":"Ok",
+
+  "_nameOfPage": "create account success",
+  "accountCreated": "Your account has been created successfully",
+  "startJourneyNow": "Start your journey now, What are you waiting for!",
+  "takeMeHome": "Take me home",
+
+
+  "_nameOfPage": "new pass",
+  "createNewPassword": "Create a new password",
+  "returnToJourney": "Return to your journey",
+  "newPassword": "New password",
+  "enterPassword": "Please enter your password",
+  "passwordHint": "Use 8 or more characters with a combination of letters, numbers, and symbols.",
+  "confirmPassword": "Confirm password",
+  "enterPasswordAgain": "Please enter your password again",
+  "resetPassword": "Reset password",
+
+
+   "_nameOfPage": "change pass correct",
+   "passwordChangedSuccess": "Your password has been changed successfully",
+  "backToLogin": "Back to log in"
+}
