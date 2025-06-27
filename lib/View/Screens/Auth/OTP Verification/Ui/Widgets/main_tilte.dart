@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:gradution_project/core/Theming/fonts/fonts.dart';
-import 'package:gradution_project/core/Theming/size/size.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class MainTiltleWidget extends StatelessWidget {
   MainTiltleWidget({super.key, required this.text, required this.fontSize});

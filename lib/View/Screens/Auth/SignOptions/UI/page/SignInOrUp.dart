@@ -1,5 +1,4 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/Home/UI/pages/Navi.dart';
 
 class SignInOrUpOption extends StatelessWidget {
   const SignInOrUpOption({super.key});
@@ -14,9 +13,9 @@ class SignInOrUpOption extends StatelessWidget {
           //   mainAxisAlignment: MainAxisAlignment.center,
           children: [
             size.height(height(context) / 14),
-            Row(
+            const Row(
               children: [
-                const Spacer(),
+                Spacer(),
                 LanguageIcon(),
               ],
             ),
@@ -59,7 +58,7 @@ class SignInOrUpOption extends StatelessWidget {
               height: height(context) / 17, // Adjust height as needed
               child: OutlinedButton(
                 onPressed: () {
-                  context.navigateTo(SignUpScreen());
+                  context.navigateTo(const SignUpScreen());
                 },
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(

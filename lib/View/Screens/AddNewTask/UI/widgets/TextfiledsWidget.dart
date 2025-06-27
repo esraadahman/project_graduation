@@ -1,7 +1,6 @@
-import 'package:intl/intl.dart';
+
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/AddNewTask/UI/widgets/UrgencySelector.dart';
-import 'package:gradution_project/View/Screens/AddNewWorkSpaces/Ui/widget/stage/DeadLineWidget.dart';
+
 
 class Textfiledswidget extends StatefulWidget {
   final String labelText;
@@ -9,8 +8,8 @@ class Textfiledswidget extends StatefulWidget {
   final String description;
   String urgencyLevel;
   String deadline;
-  bool iupdate ;
-  String buttonText ;
+  bool iupdate;
+  String buttonText;
   final TextEditingController? controller;
   final List<String> items;
   final void Function({
@@ -19,7 +18,6 @@ class Textfiledswidget extends StatefulWidget {
     required String urgencyLevel,
     required String description,
     required String deadline,
-
   }) onNext;
 
   Textfiledswidget({
@@ -94,11 +92,16 @@ class _CustomInputFieldState extends State<Textfiledswidget> {
     // TODO: implement initState
     super.initState();
     _deadlineController = TextEditingController(
-      text:widget.iupdate? widget.deadline ?? "" : null,
+      text: widget.iupdate ? widget.deadline ?? "" : null,
     );
-    _descriptionController =
-        TextEditingController(text:widget.iupdate? widget.description ?? "" : null);
-    _titleController = TextEditingController(text:widget.iupdate? widget.hintText ?? "" : null);
+    _descriptionController = TextEditingController(
+        text: widget.iupdate ? widget.description ?? "" : null);
+    _titleController = TextEditingController(
+        text: widget.iupdate ? widget.hintText ?? "" : null);
+
+for (var item in widget.items) {
+    print("Item: $item");
+    }
   }
 
   @override

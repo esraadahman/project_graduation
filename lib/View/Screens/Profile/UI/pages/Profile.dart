@@ -1,25 +1,20 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/ChatScreen/UI/page/ChatScreen.dart';
-import 'package:gradution_project/View/Screens/Logout/Ui/page/logout.dart';
-import 'package:gradution_project/View/Screens/MessagesScreen/UI/page/MessagesScreen.dart';
-import 'package:gradution_project/View/Screens/Profile/UI/widgets/IconsWidgets.dart';
-import 'package:gradution_project/View/Screens/Profile/UI/widgets/userInfoTop.dart';
-import 'package:gradution_project/View/Screens/Settings/UI/page/settings.dart';
-import 'package:gradution_project/View/Screens/Templates/UI/page/TemplatesPage.dart';
+
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final name = UserPreferences.userName;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const UserInfoTop(
+            UserInfoTop(
               userImage:
                   "https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg?ga=GA1.1.1454705726.1706974768&semt=ais_hybrid",
-              userName: "Esraa Dahman",
+              userName: name.isNotEmpty ? name : "Esraa Dahman",
               items: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
             ),
             size.height(32),
@@ -73,11 +68,7 @@ class Profile extends StatelessWidget {
               iconName: 'assets/images/settings.svg',
               namePage: "Settings",
               onclick: () {
-                context.navigateTo(
-                  ProfilePage(
-        //               themeMode: _themeMode,
-        // onThemeChanged: toggleTheme,
-                ));
+                context.navigateTo(ProfilePage());
               },
             ),
             size.height(32),

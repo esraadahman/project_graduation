@@ -15,6 +15,11 @@ class EndPoint {
   static String UpdateGroup = 'groups/update';
   static String AllGroups = 'groups';
   static String CreateTaskChallange = "task/challenge";
+  static String getAllUsers = "groups/system/users";
+  static String userData = "user/profile";
+  static String deleteAcount = "user/profile/deleteAccount";
+  static String uploadImage = "user/profile/updateAvatar?_method=put";
+  static String UpdateUserData = "user/profile/update";
 
   static String getGroupByID(int id) {
     return "groups/$id";
@@ -54,6 +59,19 @@ class EndPoint {
   static String UpdateChallnge(int idChallange) {
     return "task/challenge/$idChallange/edit";
   }
+
+  //group/8/docs
+  static String downloadDoc1(int idgroup) {
+    return "group/$idgroup/docs";
+  }
+
+  // groups/1/add/user/2
+  static String addUserToGroup(int idgroup, int iduser) {
+    return "groups/$idgroup/add/user/$iduser";
+  }
+
+  static String downloadDoc2 =
+      "https://Bridgeit-Bridgeit.hf.space/generate-report";
   // static String updateUserInfo(int id) {
   //   return "user/$id";//
   // }
@@ -71,7 +89,7 @@ class ApiKey {
   static String user = "user";
   static String id = "id";
   static String name = "name";
-
+  static String bio = "bio";
   static String email = "email";
   // static String job_title = "job_title"; //null
   // static String created_at = "created_at"; // null

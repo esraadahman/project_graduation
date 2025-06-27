@@ -10,7 +10,7 @@ class StartOurJourneyFromHere extends StatelessWidget {
         size.width(width(context) / 1.2 / 20),
         Text(text,
             style: styling.subtitle.copyWith(
-                fontSize: width(context) / 35,
+                fontSize: width(context) / 28,
                 fontWeight: FontWeight.normal,
                 color: ColorsClass.sub_text)),
       ],

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:gradution_project/core/Theming/fonts/fonts.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class subtextWidget extends StatelessWidget {
   subtextWidget({super.key, required this.text, required this.fontsize});

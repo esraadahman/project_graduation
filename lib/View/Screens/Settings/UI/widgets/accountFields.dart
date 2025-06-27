@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/Core/Theming/colors/colors.dart';
-import 'package:gradution_project/Core/Theming/fonts/fonts.dart';
 
-Widget buildField({required String label, required String value}) {
+
+Widget buildField({
+  required String label,
+  required TextEditingController controller,
+}) {
   return Padding(
     padding: const EdgeInsets.only(bottom: 20),
     child: Column(
@@ -29,7 +31,7 @@ Widget buildField({required String label, required String value}) {
         ),
         const SizedBox(height: 6),
         TextField(
-          controller: TextEditingController(text: value),
+          controller: controller,
           style: styling.subtitle.copyWith(
               fontSize: 16,
               fontWeight: FontWeight.w500,
@@ -50,9 +52,11 @@ Widget buildField({required String label, required String value}) {
   );
 }
 
-Widget buildPasswordField({required String label, required String value}) {
+Widget buildPasswordField({
+  required String label,
+  required TextEditingController controller,
+}) {
   bool obscureText = true;
-  final controller = TextEditingController(text: value);
 
   return StatefulBuilder(
     builder: (context, setState) {
@@ -97,7 +101,6 @@ Widget buildPasswordField({required String label, required String value}) {
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                
                 ),
                 suffixIcon: IconButton(
                   icon: Icon(
@@ -119,7 +122,10 @@ Widget buildPasswordField({required String label, required String value}) {
   );
 }
 
-Widget buildBioField({required String label, required String value}) {
+Widget buildBioField({
+  required String label,
+  required TextEditingController controller,
+}) {
   return Padding(
     padding: const EdgeInsets.only(bottom: 20),
     child: Column(
@@ -147,7 +153,7 @@ Widget buildBioField({required String label, required String value}) {
 
         // Multiline TextField
         TextField(
-          controller: TextEditingController(text: value),
+          controller: controller,
           maxLines: 5,
           style: styling.subtitle.copyWith(
             fontSize: 16,
@@ -172,6 +178,7 @@ Widget buildBioField({required String label, required String value}) {
 Widget buildBioButtons({
   required VoidCallback onSave,
   required VoidCallback onCancel,
+  required String text ,
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -187,7 +194,7 @@ Widget buildBioButtons({
           ),
         ),
         child: Text(
-          "Save",
+          text,
           style: styling.subtitle.copyWith(
               color: ColorsClass.colorwhite,
               fontWeight: FontWeight.w600,

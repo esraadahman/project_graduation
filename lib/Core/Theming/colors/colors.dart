@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class ColorsClass {
   static const Color primary = Color(0xFF004EA0);
@@ -17,9 +17,9 @@ class ColorsClass {
   static const Color lightGrey = Color(0xFFDDDDDD);
   static const Color lightBlue = Color.fromARGB(255, 192, 220, 251);
   static const Color lightBlue2 = Color(0xFFF5F8FF);
-    static const Color profile= Color(0xFF848484);
-    static const Color delete= Color(0xFFFDDFDF);
-     static const Color files = Color(0xFFD1D5DB);
+  static const Color profile = Color(0xFF848484);
+  static const Color delete = Color(0xFFFDDFDF);
+  static const Color files = Color(0xFFD1D5DB);
 
   //! colors for the on boarding screen
 
@@ -88,6 +88,5 @@ class ColorsClass {
     ],
   );
 
- static  const Color customBlueTransparent = Color(0x1A2F80ED);
-
+  static const Color customBlueTransparent = Color(0x1A2F80ED);
 }

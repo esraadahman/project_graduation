@@ -1,12 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
 import 'package:gradution_project/Core/api/dio_consumer.dart';
-import 'package:gradution_project/View/Screens/AddNewTask/UI/page/AddNewTask.dart';
-import 'package:gradution_project/View/Screens/Documentation/UI/Page/decumentationPage.dart';
-import 'package:gradution_project/View/Screens/WorkSpace/Ui/widgets/dialogWidget.dart';
-
-import 'package:super_context_menu/super_context_menu.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class Workspace extends StatefulWidget {
   final int id;
@@ -121,12 +115,20 @@ class _WorkspaceState extends State<Workspace> {
                                               onDelete: () {
                                                 cubit.deleteGroup(widget.id);
                                               },
-                                              onUpdate: () {},
+                                              onUpdate: () {
+                                                Navigator.of(context).pop();
+                                              },
                                             );
                                           },
                                         );
                                       },
-                                      shareclick: () {},
+                                      shareclick: () {
+                                        context.navigateTo(
+                                          Invitememebers(
+                                            groupId: widget.id,
+                                          ),
+                                        );
+                                      },
                                     ),
                                     Positioned(
                                         bottom: 20,
@@ -156,7 +158,9 @@ class _WorkspaceState extends State<Workspace> {
                               size.height(10),
                               GestureDetector(
                                 onTap: () {
-                                  context.navigateTo(DocumentationScreen());
+                                  context.navigateTo(DocumentationScreen(
+                                    groupId: widget.id,
+                                  ));
                                 },
                                 child: Documentation(),
                               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gradution_project/core/Theming/colors/colors.dart';
+import 'package:gradution_project/Core/Theming/colors/colors.dart';
 
 class CustomDecoration {
   static BoxDecoration decorationForCenterContainer() {

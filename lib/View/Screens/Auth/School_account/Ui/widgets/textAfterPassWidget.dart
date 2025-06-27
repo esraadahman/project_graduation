@@ -12,7 +12,7 @@ class TextAfterPassWidget extends StatelessWidget {
             style: styling.subtitle.copyWith(
                 color: ColorsClass.password_text,
                 fontWeight: FontWeight.bold,
-                fontSize: width(context) / 45)),
+                fontSize: width(context) / 36)),
       ],
     );
   }

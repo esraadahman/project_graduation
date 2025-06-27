@@ -1,11 +1,10 @@
-import 'package:hive/hive.dart';
+//abstract
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
-//abstract 
-class HiveConstants{
-
-  static const String Boxname="user";
+class HiveConstants {
+  static const String Boxname = "user";
   static const String boxName = "workspaceBox";
- Future<void> saveData(String key, dynamic value) async {
+  Future<void> saveData(String key, dynamic value) async {
     final box = Hive.box(boxName);
     await box.put(key, value);
   }

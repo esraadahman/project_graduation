@@ -1,12 +1,5 @@
 import 'dart:io';
-
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/Files/UI/widgets/FilesButton2.dart';
-import 'package:gradution_project/View/Screens/Files/UI/widgets/FilesButtonWidget.dart';
-import 'package:gradution_project/View/Screens/Files/UI/widgets/FilesCardWidget.dart';
-import 'package:gradution_project/View/Screens/Home/UI/widget/AppBarWidget.dart';
-
-
 
 class FilesScreen extends StatefulWidget {
   FilesScreen({super.key});
@@ -89,83 +82,105 @@ class _FilesScreenState extends State<FilesScreen> {
   // Default filter
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorsClass.background,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            APPBarWidget(),
-            size.height(32),
-            Row(
-              children: [
-                size.width(25),
-                SearshBarWidget(),
-              ],
-            ),
-            size.height(32),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
+    return BlocProvider(
+      create: (context) =>
+          FilesDataCubit(Userrepo(api: DioConsumer(dio: Dio())))
+            ..getAllGroups(),
+      child: BlocConsumer<FilesDataCubit, FilesDataState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return Scaffold(
+            backgroundColor: ColorsClass.background,
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  size.width(20),
-                  FilesButtonWidget(
-                    image: 'assets/images/AllworkSpaces.svg',
-                    innerText: 'All Workspaces',
-                    border: true,
-                    allWorkSpaces: true,
+                  APPBarWidget(),
+                  size.height(32),
+                  Row(
+                    children: [
+                      size.width(25),
+                      SearshBarWidget(),
+                    ],
                   ),
-                  size.width(20),
-                  FilesButtonWidget(
-                    image: 'assets/images/Files.svg',
-                    innerText: 'Work space name',
-                    border: false,
-                    allWorkSpaces: false,
+                  size.height(32),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: state is WorkSpacesSuccess2
+                        ? Row(
+                            children: [
+                              size.width(20),
+                              FilesButtonWidget(
+                                image: 'assets/images/AllworkSpaces.svg',
+                                innerText: 'All Workspaces',
+                                border: true,
+                                allWorkSpaces: true,
+                              ),
+                              size.width(20),
+                              ...state.response.data.map((item) {
+                                final group = item.group;
+                                return Row(
+                                  children: [
+                                    FilesButtonWidget(
+                                      image: 'assets/images/Files.svg',
+                                      innerText: group.title,
+                                      border: false,
+                                      allWorkSpaces: false,
+                                    ),
+                                    size.width(20),
+                                  ],
+                                );
+                              }).toList(),
+                            ],
+                          )
+                        : const Text("Fail"),
                   ),
-                  size.width(20), // Optional trailing space
+                  size.height(32),
+                  Divider(
+                    color: Colors.grey[300], // Light gray
+                    thickness: 1.2, // Adjust the thickness if needed
+                    height: 1, // Space the divider takes vertically
+                  ),
+                  size.height(20),
+                  FilesButtons2Widget(
+                    onFileUploaded: (file) {
+                      setState(() {
+                        uploadedFiles.add(
+                            file); // allFiles is what you're using in your GridView
+                      });
+                    },
+                  ),
+                  size.height(20),
+                  TaskFilterWidget(
+                    filters: filters,
+                    selectedFilter: selectedFilter,
+                    onFilterSelected: (filter) {
+                      setState(() {
+                        selectedFilter = filter;
+                      });
+                    },
+                  ),
+                  GridView.builder(
+                    shrinkWrap: true,
+                    itemCount: filteredFiles.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8,
+                      childAspectRatio: 3 / 4,
+                    ),
+                    itemBuilder: (context, index) {
+                      return FileCard(data: filteredFiles[index]);
+                    },
+                  ),
                 ],
               ),
             ),
-            size.height(32),
-            Divider(
-              color: Colors.grey[300], // Light gray
-              thickness: 1.2, // Adjust the thickness if needed
-              height: 1, // Space the divider takes vertically
-            ),
-            size.height(20),
-            FilesButtons2Widget(
-              onFileUploaded: (file) {
-                setState(() {
-                  uploadedFiles.add(
-                      file); // allFiles is what you're using in your GridView
-                });
-              },
-            ),
-            size.height(20),
-            TaskFilterWidget(
-              filters: filters,
-              selectedFilter: selectedFilter,
-              onFilterSelected: (filter) {
-                setState(() {
-                  selectedFilter = filter;
-                });
-              },
-            ),
-            GridView.builder(
-              shrinkWrap: true,
-              itemCount: filteredFiles.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
-                childAspectRatio: 3 / 4,
-              ),
-              itemBuilder: (context, index) {
-                return FileCard(data: filteredFiles[index]);
-              },
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
@@ -183,10 +198,12 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => height;
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return child;
   }
 
   @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => false;
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      false;
 }

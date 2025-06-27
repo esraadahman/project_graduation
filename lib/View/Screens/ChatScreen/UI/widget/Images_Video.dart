@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/Core/Theming/size/size.dart';
-import 'package:image_picker/image_picker.dart';
 
 class ImagesVideo extends StatelessWidget {
   String chatid;

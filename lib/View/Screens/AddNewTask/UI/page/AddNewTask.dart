@@ -1,7 +1,4 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/AddNewTask/UI/widgets/TextfiledsWidget.dart';
-import 'package:gradution_project/View/Screens/AddNewTask/cubit/cubit/add_task_cubit_cubit.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class AddNewTask extends StatefulWidget {
   const AddNewTask({super.key, required this.groupId});

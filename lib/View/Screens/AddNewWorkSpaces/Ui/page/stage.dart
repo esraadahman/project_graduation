@@ -1,6 +1,3 @@
-import 'package:intl/intl.dart';
-import 'package:gradution_project/View/Screens/AddNewWorkSpaces/Ui/widget/stage/DeadLineWidget.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class StageScreen extends StatelessWidget {
@@ -20,7 +17,7 @@ class StageScreen extends StatelessWidget {
                 message: 'Work space  created  successfuly',
               ),
             );
-            context.navigateTo(const SubmitconfirmScreen());
+            context.navigateTo(SubmitconfirmScreen(groupId: state.groupId));
           }
           if (state is AddWorkspaceFailed) {
             showTopSnackBar(
@@ -29,7 +26,7 @@ class StageScreen extends StatelessWidget {
                 message: "Some thing Wrong",
               ),
             );
-          //  context.navigateTo(const SubmitconfirmScreen());
+            //  context.navigateTo(const SubmitconfirmScreen());
           }
         },
         builder: (context, state) {

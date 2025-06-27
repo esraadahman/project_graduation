@@ -39,18 +39,19 @@ class _CustomInputFieldState extends State<CustomInputField> {
             alignment: Alignment.centerLeft,
             child: Text(widget.labelText,
                 style: styling.maintitle.copyWith(
-                    fontSize: width(context) / 30,
+                    fontSize: width(context) / 24,
                     fontWeight: FontWeight.bold,
                     color: ColorsClass.sub_text)),
           ),
           size.height(5),
           SizedBox(
-            width: width(context) / 1.2,
-            height: height(context) / 1.4 / 15,
+            // width: width(context) / 1.2,
+            // height:45,
             child: TextFormField(
               onChanged: widget.onChanged,
               obscureText: (widget.obscureText && _obscureText),
               decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                 filled: true,
                 fillColor: Colors.white,
                 enabledBorder: OutlineInputBorder(
@@ -61,7 +62,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
                 hintText: widget.hintText,
                 hintStyle: styling.subtitle.copyWith(
                     color: ColorsClass.border_color,
-                    fontSize: width(context) / 32,
+                    fontSize: width(context) / 25,
                     fontWeight: FontWeight.normal),
                 suffixIcon: widget.suffixIcon
                     ? IconButton(
@@ -70,7 +71,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
                               ? Icons.remove_red_eye
                               : Icons.visibility_off_outlined,
                           color: Colors.black54,
-                          size: width(context) / 23,
+                          size: width(context) / 18,
                         ),
                         onPressed: () {
                           setState(() {

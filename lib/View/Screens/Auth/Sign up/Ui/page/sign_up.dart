@@ -1,6 +1,6 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
 import 'package:gradution_project/View/Screens/Auth/Sign%20up/cubit/cubit/sign_up_cubit.dart';
-import 'package:gradution_project/View/Screens/Home/UI/pages/Navi.dart';
+
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -23,8 +23,9 @@ class SignUpScreen extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: const Text("Alert!"),
-                  content: Text(state.errMessage ?? "An error occurred."),
+             
+                  title:  Text("Alert!", style: styling.maintitle.copyWith(fontSize: 25,color: ColorsClass.primary ),),
+                  content: Text(state.errMessage ?? "An error occurred." , style: styling.subtitle.copyWith(color: Colors.grey , fontSize: 20),),
                   actions: [
                     TextButton(
                       onPressed: () {
@@ -32,13 +33,13 @@ class SignUpScreen extends StatelessWidget {
                         context.navigateTo(
                             const SignInScreen()); // Navigate to the login screen
                       },
-                      child: const Text("Login instead"),
+                      child:  Text("Login instead", style: styling.subtitle.copyWith(color: ColorsClass.primary , fontWeight: FontWeight.normal),),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).pop(); // Close the dialog
                       },
-                      child: const Text("Cancel"),
+                      child: Text("Cancel", style: styling.subtitle.copyWith(color: ColorsClass.primary , fontWeight:  FontWeight.normal),),
                     ),
                   ],
                 );

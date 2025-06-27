@@ -1,3 +1,5 @@
+import 'package:gradution_project/ModelView/LoginModel/LoginModel.dart';
+
 class GlobalResponse {
   final bool status;
   final String message;
@@ -62,6 +64,39 @@ class GlobalResponse3 {
     return {
       'success': success,
       'message': message,
+    };
+  }
+}
+
+
+class Signupmodel {
+  final User1 user;
+  final Token token;
+  final String? message;
+  final bool? status;
+
+  Signupmodel({
+    required this.user,
+    required this.token,
+    this.message,
+    this.status,
+  });
+
+  factory Signupmodel.fromJson(Map<String, dynamic> json) {
+    return Signupmodel(
+      user: User1.fromJson(json['user']),
+      token: Token.fromJson(json['token']),
+      message: json['message'],
+      status: json['status'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'user': user.toJson(),
+      'token': token.toJson(),
+      'message': message,
+      'status': status,
     };
   }
 }

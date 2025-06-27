@@ -1,10 +1,4 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/AddNewTask/UI/page/updateTask.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/widgets/taskOverView/DeadLineRow.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/widgets/taskOverView/ProgressBar.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/widgets/taskOverView/StatusRow.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/widgets/taskOverView/TaskName.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/widgets/taskOverView/TeamMembersWidget.dart';
 
 class Taskoverview extends StatefulWidget {
   const Taskoverview(
@@ -49,7 +43,7 @@ class _TaskoverviewState extends State<Taskoverview> {
               items: ['ToDo', 'Ongoing', 'Done'],
               initialValue: widget.status, // e.g. 'ongoing'
               onChanged: (status) => widget.onclick2(),
-              onclick: widget.onclick, 
+              onclick: widget.onclick,
             ),
             const SizedBox(height: 30),
             DeadLineRow(

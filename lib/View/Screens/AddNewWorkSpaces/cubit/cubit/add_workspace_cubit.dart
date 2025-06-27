@@ -65,7 +65,7 @@ class AddWorkspaceCubit extends Cubit<AddWorkspaceState> {
         emit(AddWorkspaceFailed());
       },
       (globalResponse) {
-        emit(AddWorkspaceSuccess());
+        emit(AddWorkspaceSuccess(globalResponse.group!.id));
       },
     );
   }
@@ -108,5 +108,42 @@ class AddWorkspaceCubit extends Cubit<AddWorkspaceState> {
       // User canceled the picker
       print('No files picked');
     }
+  }
+
+  Future<void> getAllUsers() async {
+    emit(GetAllUsersLoading());
+    final response = await userrepo.getAllUsers();
+    response.fold(
+      (errorMessage) {
+        emit(GetAllUsersFailed());
+      },
+      (allUsersModel) {
+        emit(GetAllUsersSuccess(allUsersModel.users));
+      },
+    );
+  }
+
+  Future<void> InviteUsersToGroup(int userId, int groupId) async {
+    emit(InviteUsersLoading());
+    final response =
+        await userrepo.inviteUserToGroup(userid: userId, groupid: groupId);
+    response.fold(
+      (errorMessage) async {
+        if (errorMessage == 'User already in group') {
+          emit(InviteUserAlreadyInGroup());
+        } else {
+          emit(InviteUsersFailed(errorMessage));
+        }
+      },
+      (globalResponse) {
+        emit(InviteUsersSuccess());
+      },
+    );
+  }
+
+  void resetToInitialOnly() {
+    emit(AddWorkspaceInitial());
+
+    getAllUsers();
   }
 }

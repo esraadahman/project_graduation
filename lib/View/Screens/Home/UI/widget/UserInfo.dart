@@ -7,6 +7,7 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final name = UserPreferences.userName;
     return Container(
       height: height(context) / 5,
       width: MediaQuery.sizeOf(context).width,
@@ -23,10 +24,10 @@ class UserInfo extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const CircleAvatarAndAppBarText(
+            CircleAvatarAndAppBarText(
               userImage:
                   "https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg?ga=GA1.1.1454705726.1706974768&semt=ais_hybrid",
-              userName: "Mariam Mohie",
+              userName: name.isNotEmpty ? name : "Mariam Mohie",
             ),
             size.width(width(context) * .09),
             const NoteficationIconWidget(),

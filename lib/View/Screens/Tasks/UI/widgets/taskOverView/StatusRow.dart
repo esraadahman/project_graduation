@@ -93,7 +93,17 @@ class _StatusRowState extends State<StatusRow> {
         ),
         // Icon button
         GestureDetector(
-          onTap: widget.onclick,
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return ConfirmDeleteDialog(
+                  onConfirm: widget.onclick,
+                );
+              },
+            );
+          },
+          //   onTap: widget.onclick,
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),

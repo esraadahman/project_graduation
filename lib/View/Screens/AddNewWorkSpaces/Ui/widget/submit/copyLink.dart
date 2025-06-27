@@ -1,12 +1,9 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class CopyLinkButton extends StatefulWidget {
   final String text;
 
-  const CopyLinkButton({ required this.text});
+  const CopyLinkButton({required this.text});
 
   @override
   State<CopyLinkButton> createState() => _CopyLinkButtonState();

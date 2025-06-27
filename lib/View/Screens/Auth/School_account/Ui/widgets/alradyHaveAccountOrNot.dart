@@ -7,7 +7,7 @@ class AlreadyHaveAnAccountOrNot extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(content,
         style: styling.maintitle.copyWith(
-            fontSize: width(context) / 35,
+            fontSize: width(context) / 28,
             fontWeight: FontWeight.bold,
             color: ColorsClass.text));
   }

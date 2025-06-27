@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class ImageSlider extends StatefulWidget {

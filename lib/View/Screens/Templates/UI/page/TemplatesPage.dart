@@ -1,5 +1,4 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/Templates/UI/widgets/ImageSlider.dart';
 
 class TemplatesPage extends StatefulWidget {
   const TemplatesPage({super.key});

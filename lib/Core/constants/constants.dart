@@ -1,4 +1,4 @@
-import 'package:gradution_project/ModelView/general/general.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 List titles = [
   " Organize with Ease",
@@ -40,8 +40,6 @@ List<Challenge> challenges = [
   ),
 ];
 
-
-
 final List<Message> messages = [
   Message(isSender: true, text: 'Hello!'),
   Message(isSender: false, image: 'assets/images/Logo (1) (1).png'),
@@ -58,4 +56,17 @@ final List<Message> messages = [
   Message(isSender: false, text: 'Good, thanks!'),
   Message(isSender: true, text: 'How are you?'),
   Message(isSender: true, text: 'How are you?'),
+];
+
+final List<UserModel> allUsersList = [
+  UserModel(id: 1, name: "Esraa", avatar: "https://example.com/avatar1.png"),
+  UserModel(id: 2, name: "Ahmed", avatar: "https://example.com/avatar2.png"),
+  UserModel(id: 3, name: "Lina", avatar: "https://example.com/avatar3.png"),
+  UserModel(id: 4, name: "Youssef", avatar: "https://example.com/avatar4.png"),
+  UserModel(id: 5, name: "Omar", avatar: "https://example.com/avatar5.png"),
+  UserModel(id: 6, name: "Cofa", avatar: "https://example.com/avatar6.png"),
+  UserModel(id: 7, name: "Mona", avatar: "https://example.com/avatar7.png"),
+  UserModel(id: 8, name: "Salma", avatar: "https://example.com/avatar8.png"),
+  UserModel(id: 9, name: "Khaled", avatar: "https://example.com/avatar9.png"),
+  UserModel(id: 10, name: "Nour", avatar: "https://example.com/avatar10.png"),
 ];

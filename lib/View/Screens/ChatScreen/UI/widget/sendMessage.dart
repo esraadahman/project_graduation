@@ -1,11 +1,4 @@
-import 'dart:io';
-import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/ChatScreen/UI/widget/Images_Video.dart';
-import 'package:gradution_project/View/Screens/ChatScreen/UI/widget/emojiWidget.dart';
-import 'package:record/record.dart';
-import 'package:uuid/uuid.dart';
-import 'package:path_provider/path_provider.dart';
 
 class SendMessage extends StatefulWidget {
   final String chatid;

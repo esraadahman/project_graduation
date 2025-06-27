@@ -1,7 +1,4 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/ChatScreen/UI/widget/ChatBubble.dart';
-import 'package:gradution_project/View/Screens/ChatScreen/UI/widget/chatTopBar.dart';
-import 'package:gradution_project/View/Screens/ChatScreen/UI/widget/sendMessage.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({
@@ -56,6 +53,3 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
-
-
-

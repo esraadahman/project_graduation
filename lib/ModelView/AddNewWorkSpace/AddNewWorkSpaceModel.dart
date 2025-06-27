@@ -1,4 +1,3 @@
-
 class GroupResponse {
   final bool status;
   final Group group;

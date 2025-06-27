@@ -1,12 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/ModelView/general/general.dart';
-import 'package:gradution_project/View/Screens/AddChallenge/Ui/page/AddChallenge.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/pages/TaskChallenges.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/pages/TaskOverview.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/widgets/task/TaskButtons.dart';
-import 'package:gradution_project/View/Screens/Tasks/cubit/cubit/task_cubit_cubit.dart';
-import 'package:gradution_project/View/Screens/WorkSpace/Ui/widgets/dialogWidget.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class TaskPage extends StatefulWidget {

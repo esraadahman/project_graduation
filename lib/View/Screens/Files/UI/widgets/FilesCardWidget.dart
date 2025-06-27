@@ -1,10 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gradution_project/Core/Theming/colors/colors.dart';
-import 'package:intl/intl.dart';
-
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class FileCard extends StatelessWidget {
   final FileCardData data;

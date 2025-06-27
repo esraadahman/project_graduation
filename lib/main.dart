@@ -1,17 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/pages/Task.dart';
-import 'package:gradution_project/View/Screens/onBoarding/UI/page/onboarding.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/Core/Language/applocalization.dart';
-import 'package:gradution_project/Core/Notifications/services/push_notifications_service.dart';
-import 'package:gradution_project/Core/Theming/theme/themes.dart';
-import 'package:gradution_project/CubitForLanguage/cubit/switch_lang_cubit.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:gradution_project/View/Screens/Home/UI/pages/Navi.dart';
-import 'package:gradution_project/firebase_options.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,32 +16,38 @@ void main() async {
   PushNotificationsService.init();
 
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => SwitchLangCubit()),
+        BlocProvider(create: (_) => ThemeCubit()), 
+      ],
+      child: DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => const MyApp(),
+      ),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static final Box box = Hive.box(HiveConstants.Boxname);
+static final Box box = Hive.box(HiveConstants.Boxname);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => SwitchLangCubit(),
-      child: BlocBuilder<SwitchLangCubit, SwitchLangState>(
-        builder: (context, state) {
-          final locale =
-              state is AppChangeLanguage ? Locale(state.languageCode) : null;
+    return BlocBuilder<ThemeCubit, ThemeMode>(
+      builder: (context, themeMode) {
+        return BlocBuilder<SwitchLangCubit, SwitchLangState>(
+          builder: (context, state) {
+            final locale =
+                state is AppChangeLanguage ? Locale(state.languageCode) : null;
 
-          return ScreenUtilInit(
-            designSize: const Size(360, 690),
-            minTextAdapt: true,
-            splitScreenMode: true,
-            child: MaterialApp(
-                themeMode: ThemeMode.system,
+            return ScreenUtilInit(
+              designSize: const Size(360, 690),
+              minTextAdapt: true,
+              splitScreenMode: true,
+              child: MaterialApp(
+                themeMode: themeMode,
                 theme: Themes.lightTheme,
                 darkTheme: Themes.darkTheme,
                 locale: locale,
@@ -72,10 +69,9 @@ class MyApp extends StatelessWidget {
                   return supportedLocales.first;
                 },
                 builder: DevicePreview.appBuilder,
-                home:
-                    box.get(ApiKey.token) != null
-                        ? const NaviBar()
-                        : const OnBoardingScreen(),
+                home: box.get(ApiKey.token) != null
+                    ? const NaviBar()
+                    : const OnBoardingScreen(),
                 //     const Task(
                 //   taskname: "Task name",
                 //   title: "Project X dashboard UI design",
@@ -84,10 +80,11 @@ class MyApp extends StatelessWidget {
                 //   description: "Design the dashboard for Project X.",
                 // )
                 // const NaviBar(),
-                ),
-          );
-        },
-      ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }

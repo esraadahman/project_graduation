@@ -9,8 +9,13 @@ class AddWorkspeLoading extends AddWorkspaceState {}
 
 class AddWorkspaceFailed extends AddWorkspaceState {}
 
-class AddWorkspaceSuccess extends AddWorkspaceState {}
+class AddWorkspaceSuccess extends AddWorkspaceState {
+  final int groupId;
+  AddWorkspaceSuccess(this.groupId);
+}
+
 class AssignSuccess extends AddWorkspaceState {}
+
 class AssignFailed extends AddWorkspaceState {}
 
 // New state to handle date selection
@@ -19,6 +24,7 @@ class AddWorkspaceDateSelected extends AddWorkspaceState {
 
   AddWorkspaceDateSelected(this.selectedDate);
 }
+
 class WorkspaceDetailsUpdated extends AddWorkspaceState {
   final String name;
   final String description;
@@ -32,5 +38,31 @@ class WorkspaceDetailsUpdated extends AddWorkspaceState {
     this.deadline,
   );
 }
+
+// get all users
+//GetAllUsersLoading
+class GetAllUsersLoading extends AddWorkspaceState {}
+
+class GetAllUsersFailed extends AddWorkspaceState {}
+
+class GetAllUsersSuccess extends AddWorkspaceState {
+  final List<UserModel> users;
+
+  GetAllUsersSuccess(this.users);
+}
+
+// invite user
+class InviteUsersLoading extends AddWorkspaceState {}
+
+class InviteUsersFailed extends AddWorkspaceState {
+  final String message;
+  InviteUsersFailed(this.message);
+}
+
+class InviteUsersSuccess extends AddWorkspaceState {}
+
+class InviteUserAlreadyInGroup extends AddWorkspaceState {}
+
+
 
 

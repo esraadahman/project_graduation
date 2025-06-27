@@ -11,7 +11,7 @@ class HeadingTextWidget extends StatelessWidget {
         Text(
           text,
           style: styling.maintitle.copyWith(
-              fontSize: width(context) / 20, fontWeight: FontWeight.bold),
+              fontSize: width(context) / 17, fontWeight: FontWeight.bold),
         ),
       ],
     );

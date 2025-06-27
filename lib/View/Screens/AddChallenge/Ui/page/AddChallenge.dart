@@ -1,6 +1,4 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/AddChallenge/cubit/cubit/add_challenge_cubit.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class Addchallenge extends StatefulWidget {
   Addchallenge(
@@ -73,9 +71,8 @@ class _AddchallengeState extends State<Addchallenge> {
         builder: (context, state) {
           final cubit = BlocProvider.of<AddChallengeCubit>(context);
           return Scaffold(
-            backgroundColor: ColorsClass.colorwhite,
             appBar: HeaderTitle(
-              title: "New Challenge",
+              title: widget.update ? "Update Challenge" : "New Challenge",
               onMorePressed: () {},
             ),
             body: Container(

@@ -1,8 +1,4 @@
-import 'package:dio/dio.dart';
-import 'package:gradution_project/Core/api/api_consumer.dart';
-import 'package:gradution_project/Core/api/api_interceptors.dart';
-import 'package:gradution_project/Core/api/endPointes.dart';
-import 'package:gradution_project/Core/errors/exceptions.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;

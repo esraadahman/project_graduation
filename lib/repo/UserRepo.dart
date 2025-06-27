@@ -1,20 +1,10 @@
+import 'dart:io';
 import 'package:dartz/dartz.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 import 'package:gradution_project/ModelView/AllTasks/AllTasks.dart';
-import 'package:gradution_project/ModelView/ChallengesModel/GetChallenges.dart';
-import 'package:gradution_project/ModelView/GroupCreate/GroupCreate.dart';
-import 'package:gradution_project/ModelView/GroupMembers/GroupMembers.dart';
-import 'package:gradution_project/ModelView/Task/UpdateStatus.dart';
 import 'package:gradution_project/ModelView/Task/task.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:gradution_project/Core/api/api_consumer.dart';
-import 'package:gradution_project/Core/api/endPointes.dart';
-import 'package:gradution_project/Core/errors/errorModel.dart';
-import 'package:gradution_project/Core/errors/exceptions.dart';
-import 'package:gradution_project/Core/hive_constants/hive_constants.dart';
-import 'package:gradution_project/ModelView/AddNewWorkSpace/AddNewWorkSpaceModel.dart';
-import 'package:gradution_project/ModelView/AllGroups/AllGroups.dart';
+import 'package:gradution_project/ModelView/allUsers/inviteModel.dart';
 import 'package:gradution_project/ModelView/Group/SingleGroupModel.dart';
-import 'package:gradution_project/ModelView/Sign_UP/SignUpModel.dart';
 
 class Userrepo {
   final ApiConsumer api;
@@ -287,6 +277,152 @@ class Userrepo {
       return Right(user);
     } on ServerException catch (e) {
       return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, Downloaddoc1Model>> DownloadDoc1(
+      {required int groupid}) async {
+    try {
+      final response = await api.post(
+        EndPoint.downloadDoc1(groupid),
+        data: {},
+      );
+
+      final user = Downloaddoc1Model.fromJson(response);
+      return Right(user);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, DownloadDoc2Model>> downloadDoc2(
+      List<TaskItem> tasks) async {
+    try {
+      final response = await api.post(
+        EndPoint.downloadDoc2,
+        data: {
+          "tasks": tasks.map((e) => e.toJson()).toList(),
+        },
+      );
+
+      final model = DownloadDoc2Model.fromJson(response);
+      return Right(model);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, AllUsersModel>> getAllUsers() async {
+    try {
+      final response = await api.get(
+        EndPoint.getAllUsers,
+      );
+
+      final user = AllUsersModel.fromJson(response);
+
+      return Right(user);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, Invitemodel>> inviteUserToGroup(
+      {required int groupid, required int userid}) async {
+    try {
+      final response = await api.get(
+        EndPoint.addUserToGroup(groupid, userid),
+      );
+
+      final user = Invitemodel.fromJson(response);
+
+      if (response['status'] == true) {
+        return Right(user);
+      } else if (response['message'] == 'User already in group') {
+        return Left('User already in group');
+      } else {
+        return Left('Failed to invite user');
+      }
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, UserDataModel>> getUserData() async {
+    try {
+      final response = await api.get(
+        EndPoint.userData,
+      );
+
+      final user = UserDataModel.fromJson(response);
+
+      return Right(user);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, GlobalResponse2>> DeleteAcount(String password) async {
+    try {
+      final response = await api.delete(
+        EndPoint.deleteAcount,
+        data: {
+          ApiKey.password: password,
+        },
+        isFromData: false,
+      );
+
+      final singleGroup = GlobalResponse2.fromJson(response);
+
+      return Right(singleGroup);
+    } on ServerException catch (e) {
+      return Left(e.errModel.message);
+    }
+  }
+
+  Future<Either<String, UploadImageModel>> uploadAvatar(File file) async {
+    try {
+      final avatar = await MultipartFile.fromFile(
+        file.path,
+        filename: '${file.path.split('/').last}',
+      );
+
+      final response = await api.post(EndPoint.uploadImage,
+          data: {'avatar': avatar}, isFromData: true);
+
+      final request = UploadImageModel.fromJson(response);
+
+      return Right(request);
+    } catch (e) {
+      return Left("Failed to upload image.");
+    }
+  }
+
+  Future<Either<String, UpdateUserModel>> updateUserData(
+      {required String name,
+      required String email,
+      required String phone,
+      required String bio}) async {
+    try {
+      //    "name":"cofa 11",
+      // "email":"cofawe22@gmail.com",
+      // "phone":"",
+      // "bio":"cofa"
+
+      final response = await api.put(
+        EndPoint.UpdateUserData,
+        data: {
+          ApiKey.name: name,
+          ApiKey.email: email,
+          ApiKey.phone: phone,
+          ApiKey.bio: bio,
+        },
+      );
+
+      final request = UpdateUserModel.fromJson(response);
+
+      return Right(request);
+    } catch (e) {
+      return Left("Failed to upload image.");
     }
   }
 }

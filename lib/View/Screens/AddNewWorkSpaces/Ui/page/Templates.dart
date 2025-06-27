@@ -43,7 +43,7 @@ class TemplatesScreen extends StatelessWidget {
           Confirmbutton(
               text: "Finish",
               onTap: () {
-                context.navigateTo(const SubmitconfirmScreen());
+              //  context.navigateTo(const SubmitconfirmScreen());
               }),
           size.height(20),
           Confirmbuttonprimary(

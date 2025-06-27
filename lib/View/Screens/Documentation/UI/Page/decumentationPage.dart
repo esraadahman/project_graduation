@@ -1,19 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/Core/Theming/colors/colors.dart';
-import 'package:gradution_project/Core/Theming/fonts/fonts.dart';
-import 'package:gradution_project/Core/Theming/size/size.dart';
-import 'package:gradution_project/View/Screens/Files/UI/widgets/FilesCardWidget.dart';
-import 'package:gradution_project/View/Screens/WorkSpace/Ui/widgets/SortButton.dart';
-import 'package:intl/intl.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl/intl.dart';
 
 class DocumentationScreen extends StatelessWidget {
-  const DocumentationScreen({super.key});
+  const DocumentationScreen({super.key, required this.groupId});
+  final int groupId;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +17,12 @@ class DocumentationScreen extends StatelessWidget {
           style: styling.maintitle.copyWith(fontSize: 20),
         ),
         centerTitle: true,
-        leading:  IconButton(
-              icon:
-                 Icon(Icons.arrow_back_ios_new, color: ColorsClass.text),
-              onPressed: () {
-                context.goBack();
-              },
-            ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new, color: ColorsClass.text),
+          onPressed: () {
+            context.goBack();
+          },
+        ),
         actions: const [
           Icon(Icons.more_vert, color: Colors.black),
           SizedBox(width: 8),
@@ -154,6 +142,17 @@ class DocumentationScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Confirmbutton(
+                    text: "Download Documentation",
+                    onTap: () {
+                      context.navigateTo(DownloadPage(groupId: groupId));
+                    }),
+              ],
+            ),
+            const SizedBox(height: 16),
             // Sort by Time
             Row(
               mainAxisAlignment: MainAxisAlignment.end,

@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class Floatingactionbuttonthemes {
   Floatingactionbuttonthemes._();
-  static final lightTheme = const FloatingActionButtonThemeData(
+  static const lightTheme = FloatingActionButtonThemeData(
     backgroundColor: Colors.blue,
     foregroundColor: Colors.white,
     focusColor: Colors.white,
@@ -16,7 +16,7 @@ class Floatingactionbuttonthemes {
     shape: CircleBorder(),
   );
 
-  static final darkTheme = const FloatingActionButtonThemeData(
+  static const darkTheme = FloatingActionButtonThemeData(
     backgroundColor: Colors.purple,
     foregroundColor: Colors.black,
     focusColor: Colors.black,

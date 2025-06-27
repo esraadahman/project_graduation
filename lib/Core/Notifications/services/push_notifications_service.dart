@@ -1,11 +1,5 @@
 import 'dart:developer';
-
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:hive/hive.dart';
-
-import 'package:gradution_project/Core/api/endPointes.dart';
-import 'package:gradution_project/Core/hive_constants/hive_constants.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class PushNotificationsService {
   static final Box box = Hive.box(HiveConstants.Boxname);

@@ -15,14 +15,14 @@ class TextButtonWidgetLoginOrSignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        size.width(width(context) * .0001),
+        
         TextButton(
             onPressed: onTap,
             child: Text(text,
                 style: styling.subtitle.copyWith(
                     decoration: TextDecoration.underline,
                     color: ColorsClass.primary,
-                    fontSize: width(context) / 35,
+                    fontSize: width(context) / 30,
                     fontWeight: isbold ? FontWeight.bold : FontWeight.normal))),
       ],
     );

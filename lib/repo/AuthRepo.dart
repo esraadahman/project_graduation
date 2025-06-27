@@ -12,6 +12,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+
 class AuthRepo {
   final ApiConsumer api;
 
@@ -43,7 +44,7 @@ class AuthRepo {
     }
   }
 
-  Future<Either<String, LoginModel>> sign_up({
+  Future<Either<String, Signupmodel>> sign_up({
     required String email,
     required String pass,
     required String name,
@@ -56,13 +57,13 @@ class AuthRepo {
         ApiKey.password: pass,
         ApiKey.d_token: dToken
       });
-      final user = LoginModel.fromJson(response);
+      final user = Signupmodel.fromJson(response);
       // Save user data using SharedPreferences
       await box.put(ApiKey.token, user.token.accessToken);
-      await box.put(ApiKey.name, user.data.user.name);
-      await box.put(ApiKey.email, user.data.user.email);
+      await box.put(ApiKey.name, user.user.name);
+      await box.put(ApiKey.email, user.user.email);
       await box.put(ApiKey.password, pass);
-      await box.put(ApiKey.id, user.data.user.id);
+      await box.put(ApiKey.id, user.user.id);
 
       return Right(user);
     } on ServerException catch (e) {
@@ -70,19 +71,7 @@ class AuthRepo {
     }
   }
 
-  // Future<Either<String, LogoutModel>> logout() async {
-  //   try {
-  //     final response = await api.post(
-  //       EndPoint.logout,
-  //     );
 
-  //     final response2 = LogoutModel.fromJson(response);
-
-  //     return Right(response2);
-  //   } on ServerException catch (e) {
-  //     return Left(e.errModel.message);
-  //   }
-  // }
 
   static final FirebaseAuth _auth = FirebaseAuth.instance;
 

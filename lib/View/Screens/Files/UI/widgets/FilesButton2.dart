@@ -1,8 +1,5 @@
 import 'dart:io';
-
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/Files/UI/widgets/FilesAttachment.dart';
-import 'package:gradution_project/View/Screens/Files/UI/widgets/FilesCardWidget.dart';
 
 
 class FilesButtons2Widget extends StatefulWidget {

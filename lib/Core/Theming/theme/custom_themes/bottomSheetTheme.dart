@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class Bottomsheettheme {
   Bottomsheettheme._();
@@ -20,8 +20,8 @@ class Bottomsheettheme {
     constraints,
   */
   // light theme
-  static final BottomSheetThemeData lightThemeBottomSheet =
-      const BottomSheetThemeData(
+  static const BottomSheetThemeData lightThemeBottomSheet =
+      BottomSheetThemeData(
     showDragHandle: true,
     backgroundColor: Colors.black,
     elevation: 0,
@@ -34,7 +34,7 @@ class Bottomsheettheme {
   );
 
 // dark theme
-  static final BottomSheetThemeData darkThemeBottomSheet = const BottomSheetThemeData(
+  static const BottomSheetThemeData darkThemeBottomSheet = BottomSheetThemeData(
     showDragHandle: true,
     backgroundColor: Colors.white,
     elevation: 0,

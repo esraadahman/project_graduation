@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
-class size{
+class size {
+  static SizedBox height(double height) => SizedBox(
+        height: height,
+      );
+  static SizedBox width(double width) => SizedBox(width: width);
 
-
-  static SizedBox height (double height)=> SizedBox(height: height,);
-  static SizedBox width (double width)=> SizedBox(width: width);
-  
-
-   static double widthMedia(BuildContext context, double percentage) {
+  static double widthMedia(BuildContext context, double percentage) {
     return MediaQuery.sizeOf(context).width * percentage;
   }
 
@@ -15,7 +14,6 @@ class size{
     return MediaQuery.sizeOf(context).height * percentage;
   }
 }
+
 double width(context) => MediaQuery.of(context).size.width;
 double height(context) => MediaQuery.of(context).size.height;
-
-

@@ -1,7 +1,4 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class AppLoalization {
   Locale? locale;
@@ -11,8 +8,8 @@ class AppLoalization {
     return Localizations.of<AppLoalization>(context, AppLoalization);
   }
 
-static LocalizationsDelegate<AppLoalization> delegate = _AppLoalizationDelegate();  
-
+  static LocalizationsDelegate<AppLoalization> delegate =
+      _AppLoalizationDelegate();
 
 // same function to read languages files
   late Map<String, String> jsonString;
@@ -30,27 +27,21 @@ static LocalizationsDelegate<AppLoalization> delegate = _AppLoalizationDelegate(
   String translate(String key) => jsonString[key] ?? '';
 }
 
-class _AppLoalizationDelegate extends LocalizationsDelegate<AppLoalization>{
+class _AppLoalizationDelegate extends LocalizationsDelegate<AppLoalization> {
   @override
   bool isSupported(Locale locale) {
-  return ['en','ar'].contains(locale.languageCode);
+    return ['en', 'ar'].contains(locale.languageCode);
   }
 
   @override
-  Future<AppLoalization> load(Locale locale) async{
-  AppLoalization appLoalization = AppLoalization(locale: locale);
-  await appLoalization.LoadLanguage();
-  return appLoalization;
+  Future<AppLoalization> load(Locale locale) async {
+    AppLoalization appLoalization = AppLoalization(locale: locale);
+    await appLoalization.LoadLanguage();
+    return appLoalization;
   }
 
-
-// return localization when reload app true or false  
+// return localization when reload app true or false
   @override
-  bool shouldReload(covariant LocalizationsDelegate<AppLoalization> old) => false;
-  
-
+  bool shouldReload(covariant LocalizationsDelegate<AppLoalization> old) =>
+      false;
 }
-
-
-
-

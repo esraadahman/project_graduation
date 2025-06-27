@@ -1,10 +1,5 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/Files/UI/page/filesScreen.dart';
-import 'package:gradution_project/View/Screens/Logout/Ui/page/logout.dart';
-import 'package:gradution_project/View/Screens/MessagesScreen/UI/page/MessagesScreen.dart';
-import 'package:gradution_project/View/Screens/Profile/UI/pages/Profile.dart';
-
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 class NaviBar extends StatefulWidget {
   const NaviBar({super.key});
 
@@ -18,7 +13,7 @@ class _NaviBarState extends State<NaviBar> {
   final List<Widget> _pages = [
     const NavigateHomePage(),
     const MessagesScreen(),
-   FilesScreen(),
+    FilesScreen(),
     Profile(),
   ];
 
@@ -32,7 +27,6 @@ class _NaviBarState extends State<NaviBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsClass.colorwhite,
       floatingActionButton: CustomFloatingActionButton(
         onPressed: () {
           context.navigateTo(const Workspaces());

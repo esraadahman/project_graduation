@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:gradution_project/repo/UserRepo.dart';
 import 'package:meta/meta.dart';
-
 part 'add_challenge_state.dart';
 
 class AddChallengeCubit extends Cubit<AddChallengeState> {

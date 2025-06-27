@@ -1,5 +1,4 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/Home/UI/widget/UserInfo.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
@@ -36,5 +35,3 @@ class HomeContent extends StatelessWidget {
     );
   }
 }
-
-

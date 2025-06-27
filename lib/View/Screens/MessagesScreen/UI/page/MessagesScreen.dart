@@ -1,7 +1,4 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/View/Screens/ChatScreen/UI/page/ChatScreen.dart';
-import 'package:gradution_project/View/Screens/MessagesScreen/UI/widget/MessageWidget.dart';
-import 'package:gradution_project/View/Screens/MessagesScreen/UI/widget/SpacerContainer.dart';
 
 class MessagesScreen extends StatefulWidget {
   const MessagesScreen({super.key});

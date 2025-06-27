@@ -25,7 +25,7 @@ class Confirmbutton extends StatelessWidget {
           child: Text(text,
               style: styling.maintitle.copyWith(
                 color: Colors.white,
-                fontSize: width(context) / 30,
+                fontSize: width(context) / 22,
               )),
         ),
       ),

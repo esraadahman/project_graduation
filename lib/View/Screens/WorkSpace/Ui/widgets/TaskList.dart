@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
 import 'package:gradution_project/ModelView/AllTasks/AllTasks.dart';
 import 'package:gradution_project/View/Screens/Tasks/UI/pages/Task.dart';
-import 'package:gradution_project/View/Screens/WorkSpace/Ui/widgets/TaskDetailsPage.dart';
 // adjust import
 
 class TaskList extends StatelessWidget {

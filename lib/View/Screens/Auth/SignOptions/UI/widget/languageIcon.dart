@@ -1,4 +1,4 @@
-import 'package:gradution_project/CubitForLanguage/cubit/switch_lang_cubit.dart';
+import 'package:gradution_project/MainCubites/CubitForLanguage/cubit/switch_lang_cubit.dart';
 import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class LanguageIcon extends StatelessWidget {

@@ -1,14 +1,10 @@
-import 'package:dio/dio.dart';
-import 'package:gradution_project/Core/errors/errorModel.dart';
-
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class ServerException implements Exception {
   final ErrorModel errModel;
 
   ServerException({required this.errModel});
 }
-
-
 
 void handelDioExceptions(DioException e) {
   switch (e.type) {

@@ -1,5 +1,6 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
 
+
 class ChallengeActionDialog extends StatelessWidget {
   final VoidCallback onDelete;
   final VoidCallback onUpdate;
@@ -41,14 +42,23 @@ class ChallengeActionDialog extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               ElevatedButton.icon(
-                onPressed: onDelete,
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the current dialog first
+                  showDialog(
+                    context: context,
+                    builder: (context) => ConfirmDeleteDialog(
+                      onConfirm: onDelete,
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.delete, color: Colors.white),
-                label: Text("Delete", style: styling.maintitle.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsClass.colorwhite)),
+                label: Text("Delete",
+                    style: styling.maintitle.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: ColorsClass.colorwhite)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:ColorsClass.errorcolor,
+                  backgroundColor: ColorsClass.errorcolor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
                 ),
@@ -57,12 +67,13 @@ class ChallengeActionDialog extends StatelessWidget {
               ElevatedButton.icon(
                 onPressed: onUpdate,
                 icon: const Icon(Icons.edit, color: Colors.white),
-                label:  Text("Update" , style: styling.maintitle.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsClass.colorwhite)),
+                label: Text("Update",
+                    style: styling.maintitle.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: ColorsClass.colorwhite)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 129, 179, 230), 
+                  backgroundColor: const Color.fromARGB(255, 129, 179, 230),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
                 ),

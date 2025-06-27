@@ -1,6 +1,6 @@
 import 'package:gradution_project/Core/Imports/common_imports.dart';
-import 'package:gradution_project/ModelView/ChallengesModel/GetChallenges.dart';
-import 'package:gradution_project/View/Screens/Tasks/UI/widgets/TaskChallenges/boxContainer.dart';
+
+
 
 class Taskchallenges extends StatefulWidget {
   const Taskchallenges(

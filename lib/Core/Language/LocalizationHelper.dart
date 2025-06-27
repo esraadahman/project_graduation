@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:gradution_project/Core/Language/applocalization.dart';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class LangClass {
   static String translate(BuildContext context, String key) {

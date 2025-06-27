@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'package:gradution_project/Core/Imports/common_imports.dart';
 
 class AllGroups {
   final bool status;
@@ -24,8 +24,8 @@ class AllGroups {
   factory AllGroups.fromMap(Map<String, dynamic> map) {
     return AllGroups(
       status: map['status'] ?? false,
-      data: List<GroupData>.from(
-          (map['data'] as List<dynamic>? ?? []).map((x) => GroupData.fromMap(x))),
+      data: List<GroupData>.from((map['data'] as List<dynamic>? ?? [])
+          .map((x) => GroupData.fromMap(x))),
       numberOfGroups: map['numberOfGroups'] ?? 0,
     );
   }
